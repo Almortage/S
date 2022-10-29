@@ -10,8 +10,6 @@ class Config(object):
     ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
     SC_TEXT = os.environ.get("SCPIC_TEXT", None)
     A_TEXT = os.environ.get("A_TEXT", None)
-    ispay = ['yes']
-    ispay2 = ['yes']
     # MUST NEEDED VARS
     # set this value with your name
     ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
