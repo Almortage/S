@@ -1,3 +1,5 @@
+#by Hussein For Jepthon-Joker
+# يمنع منعاً باتاً تخمط الملف خلي عندك كرامه ولتسرقة
 from jepthon import jepiq
 from telethon.tl.functions.messages import GetHistoryRequest
 from telethon.tl.functions.channels import JoinChannelRequest
