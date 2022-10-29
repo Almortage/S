@@ -3,12 +3,12 @@ from telethon.tl.functions.messages import GetHistoryRequest
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 import requests
-from sample_config import *
 import asyncio
 from telethon import events
 c = requests.session()
 bot_username = '@t06bot'
-
+ispay = ['yes']
+ispay2 = ['yes']
 
 @jepiq.on(events.NewMessage(outgoing=True, pattern=r"\.بوت المليار"))
 async def _(event):
