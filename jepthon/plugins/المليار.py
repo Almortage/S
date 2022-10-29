@@ -15,7 +15,7 @@ jepthon = ['yes']
 @jepiq.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع نقاط"))
 async def _(event):
     if jepthon[0] == "yes":
-        await event.edit("**سيتم تجميع النقاط , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
+        await event.edit("**᯽︙سيتم تجميع النقاط , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
         channel_entity = await jepiq.get_entity(bot_username)
         await jepiq.send_message('@t06bot', '/start')
         await asyncio.sleep(5)
