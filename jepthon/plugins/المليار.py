@@ -24,10 +24,10 @@ async def _(event):
         await event.edit("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
         channel_entity = await jepiq.get_entity(bot_username)
         await jepiq.send_message('@t06bot', '/start')
-        await asyncio.sleep(10)
+        await asyncio.sleep(5)
         msg0 = await jepiq.get_messages('@t06bot', limit=1)
         await msg0[0].click(2)
-        await asyncio.sleep(10)
+        await asyncio.sleep(5)
         msg1 = await jepiq.get_messages('@t06bot', limit=1)
         await msg1[0].click(0)
 
@@ -35,7 +35,7 @@ async def _(event):
         for i in range(100):
             if ispay[0] == 'no':
                 break
-            await asyncio.sleep(10)
+            await asyncio.sleep(5)
 
             list = await jepiq(GetHistoryRequest(peer=channel_entity, limit=1,
                                                    offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
