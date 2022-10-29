@@ -10,15 +10,8 @@ bot_username = '@t06bot'
 ispay = ['yes']
 ispay2 = ['yes']
 
-@jepiq.on(events.NewMessage(outgoing=True, pattern=r"\.بوت المليار"))
-async def _(event):
-    if ispay[0] == "yes":
-        await event.edit("تجميع المليار.")
-    else:
-        await event.edit("يجب الدفع لاستعمال هذا الامر !")
 
-
-@jepiq.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع المليار"))
+@jepiq.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع نقاط"))
 async def _(event):
     if ispay[0] == "yes":
         await event.edit("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
