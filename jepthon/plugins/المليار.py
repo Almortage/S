@@ -7,14 +7,13 @@ import asyncio
 from telethon import events
 c = requests.session()
 bot_username = '@t06bot'
-ispay = ['yes']
-ispay2 = ['yes']
+jepthon = ['yes']
 
 
 @jepiq.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع نقاط"))
 async def _(event):
-    if ispay[0] == "yes":
-        await event.edit("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
+    if jepthon[0] == "yes":
+        await event.edit("**سيتم تجميع النقاط , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
         channel_entity = await jepiq.get_entity(bot_username)
         await jepiq.send_message('@t06bot', '/start')
         await asyncio.sleep(5)
@@ -26,7 +25,7 @@ async def _(event):
 
         chs = 1
         for i in range(100):
-            if ispay[0] == 'no':
+            if jepthon[0] == 'no':
                 break
             await asyncio.sleep(5)
 
@@ -34,7 +33,7 @@ async def _(event):
                                                    offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
             msgs = list.messages[0]
             if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-                await jepiq.send_message(event.chat_id, f"مافي قنوات بلبوت")
+                await jepiq.send_message(event.chat_id, f"**لاتوجد قنوات للبوت**")
                 break
             url = msgs.reply_markup.rows[0].buttons[0].url
             try:
@@ -48,9 +47,9 @@ async def _(event):
                 chs += 1
                 await jepiq.send_message(event.chat_id, f"تم الاشتراك في {chs} قناة")
             except:
-                await jepiq.send_message(event.chat_id, f"خطأ , ممكن تبندت")
+                await jepiq.send_message(event.chat_id, f"**خطأ , ممكن تبندت**")
                 break
-        await jepiq.send_message(event.chat_id, "تم الانتهاء من التجميع !")
+        await jepiq.send_message(event.chat_id, "**تم الانتهاء من التجميع !**")
 
     else:
         await event.edit("يجب الدفع لاستعمال هذا الامر !")
