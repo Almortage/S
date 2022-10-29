@@ -3,7 +3,7 @@ from telethon.tl.functions.messages import GetHistoryRequest
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 import requests
-from ..Config import *
+from sample_config import *
 import asyncio
 from telethon import events
 c = requests.session()
