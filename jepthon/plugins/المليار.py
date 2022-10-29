@@ -47,7 +47,7 @@ async def _(event):
                 msg2 = await jepiq.get_messages('@t06bot', limit=1)
                 await msg2[0].click(text='تحقق')
                 chs += 1
-                await jepiq.send_message(event.chat_id, f"تم الاشتراك في {chs} قناة")
+                await jepiq.send_message("me", f"تم الاشتراك في {chs} قناة")
             except:
                 await jepiq.send_message(event.chat_id, f"**خطأ , ممكن تبندت**")
                 break
