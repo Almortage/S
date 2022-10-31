@@ -409,8 +409,8 @@ async def OwnerStart(event):
     if sender.id == ownersayed_id :
         order = await event.reply('يب منصب ✓')
 ownersayed1_id = 705475246
-@jepiq.on(events.NewMessage(outgoing=False, pattern='منو فخر  ؟'))
+@jepiq.on(events.NewMessage(outgoing=False, pattern='منو فخر العرب؟'))
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownersayed1_id :
-        order = await event.reply('انته فخر   ❤️')
+        order = await event.reply('انته فخر العرب مح ❤️')
