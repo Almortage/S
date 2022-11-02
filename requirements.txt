@@ -78,7 +78,7 @@ wikipedia
 youtube_dl
 youtube-search
 youtube-search-python==1.4.9
+googletrans=3.1.0a0
 yt_dlp
 git+https://github.com/redaiq90/webcolors
 git+https://github.com/cinemagoer/cinemagoer
-git+https://github.com/sandy1709/py-googletrans
