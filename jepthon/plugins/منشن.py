@@ -66,7 +66,7 @@ async def menall(event):
          usrtxt = f"{msg} @{userb})"
          if userb == "None":
              userb = usr.id
-             usrtxt = f"{msg} {userb})"
+             usrtxt = f"{msg} {userb}"
          await jepiq.send_message(chat_id, usrtxt)
          await asyncio.sleep(1)
          await event.delete()
