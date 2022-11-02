@@ -39,11 +39,11 @@ async def _(event):
     await event.reply(str(len(text)))
     if len(text) < 2:
         return await edit_delete(event, "قم بكتابة ما تريد ترجمته!")
-    try:
-        translated = translater.translate(text, lan)
-        after_tr_text = translated.text
-        output_str = f"**تمت الترجمة من {LANGUAGES[translated.src].title()} الى {LANGUAGES[lan].title()}**\
-                \n`{after_tr_text}`"
-        await edit_or_reply(event, output_str)
-    except Exception as exc:
-        await edit_delete(event, f"**خطا:**\n`{exc}`", time=5)
+   # try:
+    translated = translater.translate(text, lan)
+    after_tr_text = translated.text
+    output_str = f"**تمت الترجمة من {LANGUAGES[translated.src].title()} الى {LANGUAGES[lan].title()}**\
+            \n`{after_tr_text}`"
+    await edit_or_reply(event, output_str)
+    #except Exception as exc:
+        #await edit_delete(event, f"**خطا:**\n`{exc}`", time=5)
