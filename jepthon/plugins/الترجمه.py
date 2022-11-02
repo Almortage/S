@@ -1,10 +1,10 @@
 from asyncio import sleep
-
 from googletrans import LANGUAGES, Translator
-
 from jepthon import jepiq
 from ..core.managers import edit_delete, edit_or_reply
 from . import soft_deEmojify
+
+translater = Translator()
 
 @jepiq.ar_cmd(
     pattern="ترجمة ([\s\S]*)",
