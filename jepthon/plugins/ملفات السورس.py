@@ -14,7 +14,7 @@ async def reda(event):
     for i in installed_packages])
     list = "**قائمة المكاتب المثبته**\n"
     for i in installed_packages_list:
-        list += f"i\n"
+        list += f"{i}\n"
     list += "**سورس الجوكر**"
     await edit_or_reply(event, list)
 
