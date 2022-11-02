@@ -3,7 +3,6 @@ from asyncio import sleep
 from googletrans import LANGUAGES, Translator
 
 from jepthon import jepiq
-from ..helpers.functions.functions import getTranslate
 from ..core.managers import edit_delete, edit_or_reply
 from . import soft_deEmojify
 
@@ -35,9 +34,8 @@ async def _(event):
         )
     text = soft_deEmojify(text.strip())
     lan = lan.strip()
-    Translator()
     try:
-        translated = await getTranslate(text, dest=lan)
+        translated = translater.translate(text, lan)
         after_tr_text = translated.text
         output_str = f"**تمت الترجمة من {LANGUAGES[translated.src].title()} الى {LANGUAGES[lan].title()}**\
                 \n`{after_tr_text}`"
