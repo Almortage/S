@@ -63,7 +63,7 @@ async def menall(event):
          if not chat_id in spam_chats:
              break
          userb = usr.username
-         usrtxt = f"{msg} @{userb})"
+         usrtxt = f"{msg} @{userb}"
          if userb == "None":
              userb = usr.id
              usrtxt = f"{msg} {userb}"
