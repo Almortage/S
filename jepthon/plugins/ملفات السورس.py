@@ -1,10 +1,22 @@
 from jepthon import jepiq
-
+import pkg_resources
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.utils import _catutils, parse_pre, yaml_format
 
 plugin_category = "tools"
 
+#Reda
+
+@jepiq.ar_cmd(pattern="المكاتب")
+async def reda(event):
+    installed_packages = pkg_resources.working_set
+    installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
+    for i in installed_packages])
+    list = "**قائمة المكاتب المثبته**\n"
+    for i in installed_packages_list:
+        list += f"i\n"
+    list += "**سورس الجوكر**"
+    await edit_or_reply(event, list)
 
 @jepiq.ar_cmd(
     pattern="الملفات$",
