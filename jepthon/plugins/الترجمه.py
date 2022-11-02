@@ -2,7 +2,7 @@ from asyncio import sleep
 from googletrans import LANGUAGES, Translator
 from jepthon import jepiq
 from ..core.managers import edit_delete, edit_or_reply
-from . import deEmojify
+from ..helpers.functions import deEmojify
 
 translater = Translator()
 
