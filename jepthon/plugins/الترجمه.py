@@ -2,7 +2,7 @@ from asyncio import sleep
 from googletrans import LANGUAGES, Translator
 from jepthon import jepiq
 from ..core.managers import edit_delete, edit_or_reply
-from ..helpers.functions import deEmojify
+from ..helpers.functions import soft_deEmojify
 
 translater = Translator()
 
@@ -33,7 +33,7 @@ async def _(event):
             event, "** قم بالرد على الرسالة للترجمة **", time=5
         )
     await event.reply(text)
-    text = deEmojify(text.strip())
+    text = soft_deEmojify(text.strip())
     lan = lan.strip()
     await event.reply(str(text))
     await event.reply(str(len(text)))
