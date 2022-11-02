@@ -34,6 +34,8 @@ async def _(event):
         )
     text = soft_deEmojify(text.strip())
     lan = lan.strip()
+    if len(text) < 2:
+        return await edit_delete(event, "قم بكتابة ما تريد ترجمته!")
     try:
         translated = translater.translate(text, lan)
         after_tr_text = translated.text
