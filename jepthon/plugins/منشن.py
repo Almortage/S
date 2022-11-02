@@ -64,7 +64,7 @@ async def menall(event):
              break
          userb = usr.username
          usrtxt = f"{msg} @{userb}"
-         if userb == "None":
+         if str(userb) == "None":
              userb = usr.id
              usrtxt = f"{msg} {userb}"
          await jepiq.send_message(chat_id, usrtxt)
