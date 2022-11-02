@@ -33,10 +33,13 @@ async def menall(event):
     async for usr in jepiq.iter_participants(chat_id):
         if not chat_id in spam_chats:
             break
-        usrtxt = f"{msg}\n[{usr.first_name}](tg://user?id={usr.id}) "
-        await jepiq.send_message(chat_id, usrtxt)
-        await asyncio.sleep(1)
-        await event.delete()
+    userb = usr.username
+    if userb == "None":
+    await jepiq.send_message(chat_id, usrtxt)
+    await asyncio.sleep(1)
+    await event.delete()
+        userb = usr.id
+        usrtxt = f"{msg} @{userb}) "
     try:
         spam_chats.remove(chat_id)
     except:
