@@ -42,7 +42,7 @@ async def menall(event):
     except:
         pass
 @jepiq.ar_cmd(pattern="تحكم(?:\s|$)([\s\S]*)")
- async def menall(event):
+async def menall(event):
      chat_id = event.chat_id
      if event.is_private:
          return await edit_or_reply(event, "** ᯽︙ هذا الامر يستعمل للقنوات والمجموعات فقط !**")
