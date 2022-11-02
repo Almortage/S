@@ -8,7 +8,7 @@ translater = Translator()
 
 @jepiq.ar_cmd(
     pattern="ترجمة ([\s\S]*)",
-    command=("ترجمة", plugin_category),
+    command=("ترجمة", "tools"),
     info={
         "header": "To translate the text to required language.",
         "note": "For langugage codes check [this link](https://bit.ly/2SRQ6WU)",
