@@ -59,14 +59,13 @@ async def menall(event):
          is_admin = False
      spam_chats.append(chat_id)
      usrnum = 0
-     usrtxt = ''
      async for usr in jepiq.iter_participants(chat_id):
          if not chat_id in spam_chats:
              break
          userb = usr.username
          usrtxt = f"{msg} @{userb})"
          if userb == "None":
-             userb = usr.id
+             userb = usr.id
              usrtxt = f"{msg} {userb})"
          await jepiq.send_message(chat_id, usrtxt)
          await asyncio.sleep(1)
