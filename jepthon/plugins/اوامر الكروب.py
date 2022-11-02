@@ -10,6 +10,7 @@ from telethon.tl import functions
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import (
     ChannelParticipantsAdmins,
+    ChannelParticipantCreator,
     ChannelParticipantsKicked,
     ChatBannedRights,
     UserStatusEmpty,
@@ -20,7 +21,8 @@ from telethon.tl.types import (
     UserStatusRecently,
 )
 from jepthon import jepiq
-from .. import jepiq
+from telethon.tl.functions.channels import GetParticipantRequest
+from telethon.errors import UserNotParticipantError
 from ..core.logger import logging
 from ..helpers.utils import reply_id
 from ..sql_helper.locks_sql import *
@@ -31,7 +33,7 @@ from telethon import events
 
 LOGS = logging.getLogger(__name__)
 plugin_category = "admin"
-
+spam_chats = []
 BANNED_RIGHTS = ChatBannedRights(
     until_date=None,
     view_messages=True,
@@ -719,7 +721,109 @@ async def rm_deletedacc(show):
             \nالـدردشة: {show.chat.title}(`{show.chat_id}`)",
         )
 
-
+@jepiq.ar_cmd(pattern="حظر_الكل(?:\s|$)([\s\S]*)")
+async def banall(event):
+     chat_id = event.chat_id
+     if event.is_private:
+         return await edit_or_reply(event, "** ᯽︙ هذا الامر يستعمل للقنوات والمجموعات فقط !**")
+     msg = "حظر"
+     is_admin = False
+     try:
+         partici_ = await jepiq(GetParticipantRequest(
+           event.chat_id,
+           event.sender_id
+         ))
+     except UserNotParticipantError:
+         is_admin = False
+     spam_chats.append(chat_id)
+     usrnum = 0
+     async for usr in jepiq.iter_participants(chat_id):
+         if not chat_id in spam_chats:
+             break
+         userb = usr.username
+         usrtxt = f"{msg} @{userb}"
+         if str(userb) == "None":
+             userb = usr.id
+             usrtxt = f"{msg} {userb}"
+         await jepiq.send_message(chat_id, usrtxt)
+         await asyncio.sleep(1)
+         await event.delete()
+     try:
+         spam_chats.remove(chat_id)
+     except:
+         pass
+@jepiq.ar_cmd(pattern="كتم_الكل(?:\s|$)([\s\S]*)")
+async def muteall(event):
+     chat_id = event.chat_id
+     if event.is_private:
+         return await edit_or_reply(event, "** ᯽︙ هذا الامر يستعمل للقنوات والمجموعات فقط !**")
+     msg = "كتم"
+     is_admin = False
+     try:
+         partici_ = await jepiq(GetParticipantRequest(
+           event.chat_id,
+           event.sender_id
+         ))
+     except UserNotParticipantError:
+         is_admin = False
+     spam_chats.append(chat_id)
+     usrnum = 0
+     async for usr in jepiq.iter_participants(chat_id):
+         if not chat_id in spam_chats:
+             break
+         userb = usr.username
+         usrtxt = f"{msg} @{userb}"
+         if str(userb) == "None":
+             userb = usr.id
+             usrtxt = f"{msg} {userb}"
+         await jepiq.send_message(chat_id, usrtxt)
+         await asyncio.sleep(1)
+         await event.delete()
+     try:
+         spam_chats.remove(chat_id)
+     except:
+         pass
+@jepiq.ar_cmd(pattern="طرد_الكل(?:\s|$)([\s\S]*)")
+async def kickall(event):
+     chat_id = event.chat_id
+     if event.is_private:
+         return await edit_or_reply(event, "** ᯽︙ هذا الامر يستعمل للقنوات والمجموعات فقط !**")
+     msg = "طرد"
+     is_admin = False
+     try:
+         partici_ = await jepiq(GetParticipantRequest(
+           event.chat_id,
+           event.sender_id
+         ))
+     except UserNotParticipantError:
+         is_admin = False
+     spam_chats.append(chat_id)
+     usrnum = 0
+     async for usr in jepiq.iter_participants(chat_id):
+         if not chat_id in spam_chats:
+             break
+         userb = usr.username
+         usrtxt = f"{msg} @{userb}"
+         if str(userb) == "None":
+             userb = usr.id
+             usrtxt = f"{msg} {userb}"
+         await jepiq.send_message(chat_id, usrtxt)
+         await asyncio.sleep(1)
+         await event.delete()
+     try:
+         spam_chats.remove(chat_id)
+     except:
+         pass
+@jepiq.ar_cmd(pattern="الغاء التفليش")
+async def ca_sp(event):
+  if not event.chat_id in spam_chats:
+    return await edit_or_reply(event, "** ᯽︙ 🤷🏻 لا يوجد طرد او حظر او كتم لأيقافه**")
+  else:
+    try:
+      spam_chats.remove(event.chat_id)
+    except:
+      pass
+    return await edit_or_reply(event, "** ᯽︙ تم الغاء العملية بنجاح ✓**")
 @jepiq.ar_cmd(
     pattern="احصائيات الاعضاء ?([\s\S]*)",
     command=("احصائيات الاعضاء", plugin_category),
