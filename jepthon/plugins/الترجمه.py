@@ -47,11 +47,8 @@ async def _(event):
         return await edit_delete(
             event, "** قم بالرد على الرسالة للترجمة **", time=5
         )
-    await event.reply(text)
     text = soft_deEmojify(text.strip())
     lan = lan.strip()
-    await event.reply(str(text))
-    await event.reply(str(len(text)))
     if len(text) < 2:
         return await edit_delete(event, "قم بكتابة ما تريد ترجمته!")
     try:
