@@ -18,7 +18,7 @@ async def gtrans(text, lan):
     }
 
     response = requests.request("POST", url, data=payload, headers=headers)
-    await jepiq.send_message("me", str(response.json()["data"]["translations"][0]["translatedText"]))
+    await jepiq.send_message("me", str(response.json()))
     r = response.json()["data"]["translations"][0]
     if response == 400:
         return Flase
