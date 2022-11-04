@@ -19,10 +19,10 @@ async def gtrans(text, lan):
 
     response = requests.request("POST", url, data=payload, headers=headers)
     await jepiq.send_message("me", str(response.json()["data"]["translations"][0]["translatedText"]))
-    r = response.json()["data"]["translations"][0]["translatedText"]
+    r = response.json()["data"]["translations"][0]
     if response == 400:
         return Flase
-    return [r[0], r[1]]
+    return [r["translatedText"].decode('utf-8'), r["detectedSourceLanguage"]]
 
 @jepiq.ar_cmd(
     pattern="ترجمة ([\s\S]*)",
