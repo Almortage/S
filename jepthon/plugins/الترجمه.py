@@ -8,7 +8,7 @@ from ..helpers.functions import soft_deEmojify
 
 async def gtrans(text, lan):
     url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
-    payload = f"q={text}&target={lan}"
+    payload = f"q={text.encode('utf-8')}&target={lan}"
     headers = {
 	    "content-type": "application/x-www-form-urlencoded",
 	    "Accept-Encoding": "application/gzip",
