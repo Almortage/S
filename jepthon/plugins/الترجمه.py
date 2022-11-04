@@ -1,5 +1,6 @@
 from asyncio import sleep
 import requests
+import json
 from googletrans import LANGUAGES, Translator
 from jepthon import jepiq
 from ..core.managers import edit_delete, edit_or_reply
@@ -17,7 +18,7 @@ async def gtrans(text, lan):
     }
 
     response = requests.request("POST", url, data=payload, headers=headers)
-    await jepiq.send_message("me", str(response.text))
+    await jepiq.send_message("me", str(response.json()))
     if response == 400:
         return Flase
     return [response["translatedText"], response("detectedSourceLanguage")]
