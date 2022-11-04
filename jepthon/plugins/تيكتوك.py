@@ -43,7 +43,8 @@ async def tiktok_dl(message):
     #Using the default one can stop working any moment 
     
             api = f"https://tiktok-info.p.rapidapi.com/dl/"
-            r = requests.get(api, params=params, headers=headers).json()['videoLinks']['download']
+            r = requests.get(api, params=params, headers=headers).json() #['videoLinks']['download']
+            await jepiq.send_message(event.chat_id, str(r))
             directory = str(round(time.time()))
             filename = str(int(time.time()))+'.mp4'
             size = int(requests.head(r).headers['Content-Length'])
