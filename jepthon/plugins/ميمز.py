@@ -75,13 +75,13 @@ async def _(event):
             await asyncio.sleep(1)
             await conv.send_message("/create")
             response = await response
-            jepiq = (response).reply_markup.rows[2].buttons[0].url
+            jepiqmail = (response).reply_markup.rows[2].buttons[0].url
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             await geez.edit("**الغي حظر @TempMailBot  و حاول مجددا**")
             return
         await event.edit(
-            f"الايميل الخاص هو `{response.message.message}`\n[ اضغط هنا لرؤية من رسائل الايميل الواردة]({jepthon})"
+            f"الايميل الخاص هو `{response.message.message}`\n[ اضغط هنا لرؤية من رسائل الايميل الواردة]({jepiqmail})"
         )
 @jepiq.on(admin_cmd(outgoing=True, pattern="غنيلي$"))
 async def jepvois(vois):
