@@ -1,4 +1,5 @@
 from asyncio import sleep
+import requests
 from googletrans import LANGUAGES, Translator
 from jepthon import jepiq
 from ..core.managers import edit_delete, edit_or_reply
