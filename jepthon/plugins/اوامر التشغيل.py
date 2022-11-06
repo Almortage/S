@@ -1,7 +1,7 @@
 import sys
 from asyncio.exceptions import CancelledError
 from time import sleep
-
+import asyncio
 from jepthon import jepiq
 
 from ..core.logger import logging
@@ -30,11 +30,26 @@ plugin_category = "tools"
 async def _(event):
     "Restarts the bot !!"
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "**⌔︙الجوكر ↻** \n" "**᯽︙ تم تحديث السورس بنجاح ✅ ↻**")
-    lMl10l = await edit_or_reply(
-        event,
-        "**᯽︙ جـاري تحديث سورس الجوكر ، قـد يستغـرق الأمـر 2-3 دقائـق لاتقم بكتابة تحديث مـره اخـرى انتـظـر ⏱**",
-    )
+        await event.client.send_message(BOTLOG_CHATID, "**⌔︙الجوكر ↻** \n" "**᯽︙ تم اعادة تشغيل السورس بنجاح ✅ ↻**")
+    lMl10l = await edit_or_reply(event, "᯽︙ سيتم اعادة التشغيل انتظر ")
+    await event.edit("... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒")
+    await asyncio.sleep(1)
+    await event.edit("... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒")
+    await asyncio.sleep(1)
+    await event.edit("... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒")
+    await asyncio.sleep(1)
+    await event.edit("... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒")
+    await asyncio.sleep(1)
+    await event.edit("... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒")
+    await asyncio.sleep(1)
+    await event.edit("... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒")
+    await asyncio.sleep(1)
+    await event.edit("... 84%\n█████████████████████▒▒▒▒")
+    await asyncio.sleep(1)
+    await event.edit("... 100%\n████████████████████████")
+    await asyncio.sleep(1)
+    await event.edit("᯽︙ تم اعادة تشغيل بنجاح ✓ \nانتظر ٢-٥ دقائق")
+    await asyncio.sleep(2)
     try:
         ulist = get_collectionlist_items()
         for i in ulist:
