@@ -258,7 +258,7 @@ async def _(event):
     if gvarstatus("autoname") is not None and gvarstatus("autoname") == "true":
         return await edit_delete(event, "**الاسـم الـوقتي شغـال بالأصـل 🧸♥**")
     addgvar("autoname", True)
-    await edit_delete(event, "**تم تفـعيل الاسـم الـوقتي بنجـاح ✓**")
+    await event.edit_delete(get_string("cmd_1"))
     await autoname_loop()
 
 
