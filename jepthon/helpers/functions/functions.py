@@ -2,6 +2,7 @@ import json
 import os
 import zipfile
 from random import choice
+import random
 from textwrap import wrap
 from uuid import uuid4
 
