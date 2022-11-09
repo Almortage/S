@@ -1,28 +1,20 @@
 from asyncio import sleep
 import requests
 import json
-from googletrans import LANGUAGES, Translator
+from jepthon.helpers.functions.functions import translate
 from jepthon import jepiq
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.functions import soft_deEmojify
 
 
 async def gtrans(text, lan):
-    url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
-    payload = f"q={text.encode('utf-8')}&target={lan}"
-    headers = {
-	    "content-type": "application/x-www-form-urlencoded",
-	    "Accept-Encoding": "application/gzip",
-	    "X-RapidAPI-Key": "c9ff429aa1mshf8fcb2a0f899802p108b4ejsna4a57732c397",
-	    "X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
-    }
-
-    response = requests.request("POST", url, data=payload, headers=headers)
-    await jepiq.send_message("me", str(response.json()))
-    r = response.json()["data"]["translations"][0]
+    try:
+    local response = translate(text, lang_tgt=lan)
     if response == 400:
         return Flase
-    return [r["translatedText"].decode('utf-8'), r["detectedSourceLanguage"]]
+    except Exception as er:
+        return f"حدث خطأ \n{er}"
+    return response
 
 @jepiq.ar_cmd(
     pattern="ترجمة ([\s\S]*)",
@@ -58,8 +50,8 @@ async def _(event):
         trans = await gtrans(text, lan)
         if not trans:
             return await edit_delete(event, "**تحقق من رمز اللغة !, لا يوجد هكذا لغة**")      
-        output_str = f"**تمت الترجمة من {trans[1]} الى {lan}**\
-                \n`{trans[0]}`"
+        output_str = f"**تمت الترجمة من {"ar"} الى {lan}**\
+                \n`{"trans"}`"
         await edit_or_reply(event, output_str)
     except Exception as exc:
         await edit_delete(event, f"**خطا:**\n`{exc}`", time=5)
