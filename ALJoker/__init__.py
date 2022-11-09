@@ -28,12 +28,6 @@ for file in glob("ALJoker/strings/*yml"):
             LOGS.exception(er)
 
 
-@jepiq.ar_cmd(pattern="slan")
-async def sendlan(event):
-    await edit_or_reply(event, str(languages))
-    tr = translate("انا عراقي", lang_tgt="fr").replace("\ N", "\n")
-    await edit_or_reply(event, tr)
-
 def get_string(key: str, _res: bool = True) -> Any:
     lang = "ar"
     try:
