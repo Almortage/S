@@ -20,7 +20,7 @@ from . import deEmojify, reply_id
 
 @jepiq.ar_cmd(pattern="test(?:\s|$)([\s\S]*)")
 async def reda(event):
-    event.reply(get_string("cmd_1"))
+    await event.reply(get_string("cmd_1"))
 
 
 
