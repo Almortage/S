@@ -20,9 +20,9 @@ from . import deEmojify, reply_id
 
 @jepiq.ar_cmd(pattern="test(?:\s|$)([\s\S]*)")
 async def reda(event):
-    tr = translate("انا عراقي", lang_tgt="fr").replace("\ N", "\n")
+    tr = translate("انا عراقي", lang_tgt="fa").replace("\ N", "\n")
     await edit_or_reply(event, tr)
-    result = jepiq(functions.users.GetFullUserRequest(
+    result = await jepiq(functions.users.GetFullUserRequest(
         id='earthlink_telecommunications'
     ))
     await event.reply(result.stringify())
