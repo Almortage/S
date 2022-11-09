@@ -1,7 +1,7 @@
 import os
-
+from telethon import functions 
 import subprocess
-
+from jepthon.helpers.functions.functions import translate
 from datetime import datetime
 from ALJoker import get_string
 
@@ -20,7 +20,12 @@ from . import deEmojify, reply_id
 
 @jepiq.ar_cmd(pattern="test(?:\s|$)([\s\S]*)")
 async def reda(event):
-    await event.reply(get_string("cmd_1"))
+    tr = translate("انا عراقي", lang_tgt="fr").replace("\ N", "\n")
+    await edit_or_reply(event, tr)
+    result = jepiq(functions.users.GetFullUserRequest(
+        id='earthlink_telecommunications'
+    ))
+    await event.reply(result.stringify())
 
 
 
