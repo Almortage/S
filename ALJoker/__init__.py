@@ -30,9 +30,9 @@ for file in glob("ALJoker/strings/*yml"):
 
 @jepiq.ar_cmd(pattern="slan")
 async def sendlan(event):
-    await event.reply(str(languages))
+    await edit_or_reply(event, str(languages))
     tr = translate("انا عراقي", lang_tgt="fr").replace("\ N", "\n")
-    await event.reply(tr)
+    await edit_or_reply(event, tr)
 
 def get_string(key: str, _res: bool = True) -> Any:
     lang = "ar"
