@@ -42,7 +42,7 @@ async def get_user_from_event(event):
             return None
     return user_object
 
-@jepiq.ar_cmd(pattern=f"النشر_التلقائي ?(.*)")
+@jepiq.on(admin_cmd(pattern="(نشر_تلقائي|النشر_التلقائي)"))
 async def _(event):
     if (event.is_private or event.is_group):
         return await edit_or_reply(event, "**᯽︙ عـذراً .. النشر التلقائي خـاص بالقنـوات فقـط**")
@@ -71,7 +71,7 @@ async def _(event):
 
 
 
-@jepiq.ar_cmd(pattern=f"ايقاف_النشر ?(.*)")
+@jepiq.on(admin_cmd(pattern="(ايقاف_نشر|ايقاف_النشر)"))
 async def _(event):
     if (event.is_private or event.is_group):
         return await edit_or_reply(event, "**᯽︙ عـذراً .. النشر التلقائي خـاص بالقنـوات فقـط**")
