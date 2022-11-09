@@ -22,11 +22,15 @@ for file in glob("ALJoker/strings/*yml"):
             languages[code] = safe_load(
                 open(file, encoding="UTF-8"),
             )
-        await jepiq.send_message("me", str(languages))
+        
         except Exception as er:
             LOGS.info(f"Error in {file[:-4]} language file")
             LOGS.exception(er)
 
+
+@jepiq.ar_cmd(pattern="slan")
+async def sendlan(event):
+    await jepiq.send_message("me", str(languages))
 
 def get_string(key: str, _res: bool = True) -> Any:
     lang = "ar"
