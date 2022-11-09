@@ -499,7 +499,7 @@ async def on_plug_in_callback_query_handler(event):
         del PM_WARNS[str(event.query.user_id)]
         sql.del_collection("pmwarns")
         sql.add_collection("pmwarns", PM_WARNS, {}) 
-        await event.edit(text, buttons=buttons)
+    await event.edit(text, buttons=buttons)
         
 #ترجمه وكتابة فريق الجوكر
 @jepiq.tgbot.on(CallbackQuery(data=re.compile(rb"to_enquire_something")))
