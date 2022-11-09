@@ -18,7 +18,7 @@ LOGS = logging.getLogger("jepthon")
 
 def load_module(shortname, plugin_path=None):
     if shortname.startswith("__"):
-        name = "jepthon.ALJoker.{}".format(shortname)
+        pass
     elif shortname.endswith("_"):
         path = Path(f"jepthon/plugins/{shortname}.py")
         checkplugins(path)
@@ -58,8 +58,7 @@ def load_module(shortname, plugin_path=None):
         spec.loader.exec_module(mod)
         # for imports
         sys.modules["jepthon.plugins." + shortname] = mod
-        if shortname.startswith("jepthon."):
-            LOGS.info("⌯︙تم بنجاح تحميل ملف " + shortname)
+        LOGS.info("⌯︙تم بنجاح تحميل ملف " + shortname)
 
 
 def remove_plugin(shortname):
