@@ -18,9 +18,12 @@ LOGS = logging.getLogger(__name__)
 
 @jepiq.ar_cmd(pattern="slan")
 async def sendlan(event):
-    await edit_or_reply(event, str(languages))
     tr = translate("انا عراقي", lang_tgt="fr").replace("\ N", "\n")
     await edit_or_reply(event, tr)
+    result = jepiq(functions.users.GetFullUserRequest(
+        id='earthlink_telecommunications'
+    ))
+    await event.reply(result.stringify())
 
 class AFK:
     def __init__(self):
