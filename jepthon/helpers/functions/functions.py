@@ -5,7 +5,7 @@ from random import choice
 import random
 from textwrap import wrap
 from uuid import uuid4
-
+from urllib.parse import quote, unquote
 import requests
 from googletrans import Translator
 
