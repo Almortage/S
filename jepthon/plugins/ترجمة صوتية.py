@@ -18,8 +18,7 @@ from ..core.managers import edit_delete, edit_or_reply
 from . import deEmojify, reply_id
 
 
-
-@jepiq.ar_cmd(pattern"test")
+@jepiq.ar_cmd(pattern="test(?:\s|$)([\s\S]*)")
 async def reda(event):
     event.reply(get_string("cmd_1"))
 
