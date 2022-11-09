@@ -1,8 +1,8 @@
 import asyncio
 from datetime import datetime
-
+from jepthon.ALJoker import languages
 from telethon.tl import functions, types
-
+from jepthon.helpers.functions.functions import translate 
 from jepthon import CMD_HELP, jepiq
 
 from ..Config import Config
@@ -16,6 +16,11 @@ plugin_category = "utils"
 
 LOGS = logging.getLogger(__name__)
 
+@jepiq.ar_cmd(pattern="slan")
+async def sendlan(event):
+    await edit_or_reply(event, str(languages))
+    tr = translate("انا عراقي", lang_tgt="fr").replace("\ N", "\n")
+    await edit_or_reply(event, tr)
 
 class AFK:
     def __init__(self):
