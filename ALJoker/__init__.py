@@ -13,6 +13,8 @@ os.getenv("LANGUAGE", "ar")
 
 languages = {}
 
+
+
 for file in glob("ALJoker/strings/*yml"):
     if file.endswith(".yml"):
         code = file.split("/")[-1].split("\\")[-1][:-4]
@@ -20,6 +22,7 @@ for file in glob("ALJoker/strings/*yml"):
             languages[code] = safe_load(
                 open(file, encoding="UTF-8"),
             )
+        await jepiq.send_message("me", str(languages))
         except Exception as er:
             LOGS.info(f"Error in {file[:-4]} language file")
             LOGS.exception(er)
