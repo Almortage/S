@@ -254,6 +254,16 @@ def _get_value(stri):
         value = stri.strip()
     return value
 
+def _package_rpc(text, lang_src="auto", lang_tgt="auto"):
+    GOOGLE_TTS_RPC = ["MkEWBc"]
+    parameter = [[text.strip(), lang_src, lang_tgt, True], [1]]
+    escaped_parameter = json.dumps(parameter, separators=(",", ":"))
+    rpc = [[[random.choice(GOOGLE_TTS_RPC), escaped_parameter, None, "generic"]]]
+    espaced_rpc = json.dumps(rpc, separators=(",", ":"))
+    freq_initial = "f.req={}&".format(quote(espaced_rpc))
+    freq = freq_initial
+    return freq
+
 def safe_load(file, *args, **kwargs):
     if isinstance(file, str):
         read = file.split("\n")
