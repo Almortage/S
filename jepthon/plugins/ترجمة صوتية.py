@@ -3,7 +3,7 @@ import os
 import subprocess
 
 from datetime import datetime
-
+from ALJoker import get_string
 
 
 
@@ -19,7 +19,9 @@ from . import deEmojify, reply_id
 
 
 
-
+@jepiq.ar_cmd(pattern"test")
+async def reda(event):
+    event.reply(get_string("cmd_1"))
 
 
 
