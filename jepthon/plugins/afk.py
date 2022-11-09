@@ -1,6 +1,6 @@
 import asyncio
 from datetime import datetime
-from jepthon.ALJoker import languages
+from ALJoker import languages
 from telethon.tl import functions, types
 from jepthon.helpers.functions.functions import translate 
 from jepthon import CMD_HELP, jepiq
