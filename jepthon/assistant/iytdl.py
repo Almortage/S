@@ -9,14 +9,10 @@ from telethon import Button
 from telethon.errors.rpcerrorlist import FilePartLengthInvalidError, MediaEmptyError
 from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
 from telethon.tl.types import InputWebDocument as wb
-
+from ..helpers.functions.utube import yt_search_btns
 from . import LOGS
 from jepthon import jepiq
-try:
-    from youtubesearchpython import VideosSearch
-except ImportError:
-    LOGS.info("'youtubesearchpython' not installed!")
-    VideosSearch = None
+
 
 
 ytt = "https://graph.org/file/afd04510c13914a06dd03.jpg"
@@ -50,7 +46,7 @@ async def _(event):
         await event.answer([fuk])
         return
     results = []
-    search = VideosSearch(string, limit=50)
+    search = yt_search_btns(string, limit=50)
     nub = search.result()
     nibba = nub["result"]
     for v in nibba:
