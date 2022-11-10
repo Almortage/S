@@ -31,7 +31,7 @@ plugin_category = "bot"
 )
 async def _(event):
     try:
-        string = event.text.split(" ", maxsplit=1)[1]
+        joker = event.text.split(" ", maxsplit=1)[1]
     except IndexError:
         fuk = event.builder.article(
             title="Search Something",
@@ -46,7 +46,7 @@ async def _(event):
         await event.answer([fuk])
         return
     results = []
-    search = VideosSearch(result, limit=50)
+    search = VideosSearch(joker, limit=50)
     nub = search.result()
     nibba = nub["result"]
     for v in nibba:
