@@ -22,7 +22,7 @@ except ImportError:
 ytt = "https://graph.org/file/afd04510c13914a06dd03.jpg"
 _yt_base_url = "https://www.youtube.com/watch?v="
 BACK_BUTTON = {}
-
+plugin_category = "bot"
 
 @jepiq.ar_cmd(
     pattern="اغنيه(?:\s|$)([\s\S]*)",
