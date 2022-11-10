@@ -9,7 +9,7 @@ from telethon import Button
 from telethon.errors.rpcerrorlist import FilePartLengthInvalidError, MediaEmptyError
 from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
 from telethon.tl.types import InputWebDocument as wb
-from ..helpers.functions.utube import yt_search_btns
+from youtubesearchpython import VideosSearch
 from . import LOGS
 from jepthon import jepiq
 
@@ -46,7 +46,7 @@ async def _(event):
         await event.answer([fuk])
         return
     results = []
-    search = yt_search_btns(string, limit=50)
+    search = VideosSearch(string, limit=50)
     nub = search.result()
     nibba = nub["result"]
     for v in nibba:
