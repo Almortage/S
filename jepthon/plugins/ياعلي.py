@@ -6,9 +6,8 @@ from ..core.managers import edit_delete, edit_or_reply
 @jepiq.ar_cmd(pattern="اشتراك.")
 async def reda(event):
     ty = event.text.replace("اشتراك.", "")
-    ty = ty.strip()
-    await jepiq.send_message(event.chat_id, f"{ty}")
-    if ty == "":
+    ty = ty.replace(" ", "")
+    if len (ty) < 2:
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري كروب او خاص**")
     if ty == "كروب":
         if not event.is_group:
