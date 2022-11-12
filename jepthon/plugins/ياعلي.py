@@ -7,6 +7,8 @@ from ..core.managers import edit_delete, edit_or_reply
 async def reda(event):
     ty = event.text.replace("اشتراك.", "")
     ty = ty.replace(" ", "")
+    tyy = len(ty)
+    await jepiq.send_message(event.chat_id, f"{tyy}")
     if len (ty) < 2:
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري كروب او خاص**")
     if ty == "كروب":
@@ -25,6 +27,8 @@ async def reda(event):
         if not gvarstatus ("subprivate"):
             addgvar ("subprivate", True)
             await edit_or_reply(event, "**تم تفعيل الاشتراك الاجباري للخاص**")
+    if ty not in ["خاص", "كروب"]:
+        return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري كروب او خاص**")
  
 @jepiq.ar_cmd(incoming=True)
 async def reda(event):
