@@ -735,7 +735,7 @@ async def _(dyno):
     )
 
 
-def prettyjson(obj, indent=2, maxlinelength=200):
+def prettyjson(obj, indent=2, maxlinelength=160):
     items, _ = getsubitems(
         obj,
         itemkey="",
