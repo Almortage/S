@@ -3,9 +3,9 @@ from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 import asyncio
 from ..core.managers import edit_delete, edit_or_reply
 
-@jepiq.ar_cmd(pattern="اشتراك")
+@jepiq.ar_cmd(pattern="اشتراك.")
 async def reda(event):
-    ty = event.text.replace("اشتراك", "")
+    ty = event.text.replace("اشتراك.", "")
     ty = ty.strip()
     await jepiq.send_message(event.chat_id, ty)
     if ty == "":
