@@ -32,5 +32,4 @@ async def reda(event):
 @jepiq.ar_cmd(incoming=True)
 async def reda(event):
     if gvarstatus ("subprivate"):
-        if event.is_private:
-            await edit_or_reply(event, str(event))
+        await jepiq.send_message("me", str(event))
