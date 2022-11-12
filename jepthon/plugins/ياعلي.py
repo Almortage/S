@@ -6,7 +6,7 @@ from ..core.managers import edit_delete, edit_or_reply
 @jepiq.ar_cmd(pattern="اشتراك")
 async def reda(event):
     ty = event.text
-    ty = ty.replace("اشتراك.", "")
+    ty = ty.replace(".اشتراك", "")
     ty = ty.replace(" ", "")
     await event.reply(ty)
     if len (ty) < 2:
