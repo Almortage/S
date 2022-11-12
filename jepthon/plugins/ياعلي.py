@@ -37,13 +37,13 @@ async def reda (event):
     if cc == "كروب":
         if not gvarstatus ("subgroup"):
             return await edit_delete("**لم تفعل الاشتراك الاجباري للكروب لإلغائه**")
-        else
+        if gvarstatus ("subgroup"):
             delgvar ("subgroup")
             return await edit_delete(event, "**تم الغاء الاشتراك الاجباري للكروب بنجاح**")
     if cc == "خاص":
         if not gvarstatus ("subprivate"):
             return await edit_delete(event, "** الاشتراك الاجباري للخاص غير مفعل لإلغائه **")
-        else
+        if gvarstatus ("subprivate"):
             delgvar ("subprivate")
             return await edit_delete(event, "**تم إلغاء الاشتراك الاجباري للخاص**")
     if cc not in ["خاص", "كروب"]:
