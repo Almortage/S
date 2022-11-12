@@ -5,8 +5,10 @@ from ..core.managers import edit_delete, edit_or_reply
 
 @jepiq.ar_cmd(pattern="اشتراك")
 async def reda(event):
-    ty = event.text.replace("اشتراك.", "")
+    ty = event.text
+    ty = ty.replace("اشتراك.", "")
     ty = ty.replace(" ", "")
+    event.reply(ty)
     if len (ty) < 2:
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري كروب او خاص**")
     if ty == "كروب":
