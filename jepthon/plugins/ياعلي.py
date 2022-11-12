@@ -26,8 +26,9 @@ async def reda(event):
         if not gvarstatus ("subprivate"):
             addgvar ("subprivate", True)
             await edit_or_reply(event, "**تم تفعيل الاشتراك الاجباري للخاص**")
- @jepiq.ar_cmd(incoming=True)
- async def reda(event):
-     if gvarstatus ("subprivate"):
-         if event.is_private:
-             await edit_or_reply(event, str(event))
+ 
+@jepiq.ar_cmd(incoming=True)
+async def reda(event):
+    if gvarstatus ("subprivate"):
+        if event.is_private:
+            await edit_or_reply(event, str(event))
