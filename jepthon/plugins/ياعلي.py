@@ -29,7 +29,8 @@ async def reda(event):
     if ty not in ["خاص", "كروب"]:
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري كروب او خاص**")
  
-@jepiq.ar_cmd(incoming=True, is_private=True)
+@jepiq.ar_cmd(incoming=True)
 async def reda(event):
     if gvarstatus ("subprivate"):
-        await jepiq.send_message(event.chat_id, "**شبيك يغبي**")
+        if event.is_private:
+            await jepiq.send_message(event.chat_id, "**شبيك يغبي**")
