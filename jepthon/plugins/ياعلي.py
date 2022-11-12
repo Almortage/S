@@ -30,7 +30,7 @@ async def reda(event):
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري كروب او خاص**")
 @jepiq.ar_cmd(pattern="الغاء")
 async def reda (event):
-    cc = event.text.replace(".اشتراك", "")
+    cc = event.text.replace(".الغاء", "")
     cc = cc.replace(" ", "")
     if len (cc) < 2:
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري لإلغائه**")
