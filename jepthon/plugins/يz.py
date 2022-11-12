@@ -7,6 +7,7 @@ from ..core.managers import edit_delete, edit_or_reply
 async def reda(event):
     ty = event.text.replace("اشتراك", "")
     ty = ty.strip()
+    await jepiq.send_message(event.chat_id, ty)
     if ty == "":
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري كروب او خاص**")
     if ty == "كروب":
