@@ -9,10 +9,10 @@ async def reda(event):
     ty = ty.strip()
     if ty == "":
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري كروب او خاص**")
-    if ty == "كروب"
+    if ty == "كروب":
         if not event.is_group:
             return await edit_delete("**استعمل الأمر في الجروب المراد تفعيل الاشتراك الاجباري به**")
-        else
+        if event.is_group:
             if gvarstatus ("subgroup") == event.chat_id:
                 return await edit_delete(event, "**الاشتراك الاجباري مفعل لهذا الكروب**")
             if gvarstatus("subgroup"):
@@ -22,10 +22,10 @@ async def reda(event):
     if ty == "خاص":
         if gvarstatus ("subprivate"):
             return await edit_delete(event, "**الاشتراك الاجباري للخاص مفعل**")
-        else
-            addgvar ("subprivate", true)
+        if not gvarstatus ("subprivate"):
+            addgvar ("subprivate", True)
             await edit_or_reply(event, "**تم تفعيل الاشتراك الاجباري للخاص**")
-@jepiq.ar_cmd(incoming=true)
+@jepiq.ar_cmd(incoming=True)
 async def reda(event):
     if gvarstatus ("subprivate"):
         if event.is_private:
