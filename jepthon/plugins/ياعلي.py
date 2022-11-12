@@ -8,7 +8,6 @@ async def reda(event):
     ty = event.text
     ty = ty.replace(".اشتراك", "")
     ty = ty.replace(" ", "")
-    await event.reply(ty)
     if len (ty) < 2:
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري كروب او خاص**")
     if ty == "كروب":
