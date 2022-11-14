@@ -28,7 +28,7 @@ async def reda(event):
             await edit_or_reply(event, "**تم تفعيل الاشتراك الاجباري للخاص**")
     if ty not in ["خاص", "كروب"]:
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري كروب او خاص**")
-@jepiq.ar_cmd(pattern="الغاء")
+@jepiq.ar_cmd(pattern="ايقاف")
 async def reda (event):
     cc = event.text.replace(".الغاء", "")
     cc = cc.replace(" ", "")
