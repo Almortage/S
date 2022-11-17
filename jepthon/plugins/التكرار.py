@@ -127,7 +127,7 @@ async def spammer(event):
     addgvar("spamwork", True)
     await spam_function(event, jepthon, jepiq, sleeptimem, sleeptimet)
 
-@jepiq.ar_cmd(pattern=f"مكرر(.*)")
+@jepiq.on(admin_cmd(pattern="(مكرر|مؤقت|موقت)"))
 async def spammer(event):
     reply = await event.get_reply_message()
     input_str = "".join(event.text.split(maxsplit=1)[1:]).split(" ", 2)
