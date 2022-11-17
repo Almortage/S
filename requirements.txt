@@ -82,4 +82,3 @@ googletrans==3.1.0a0
 yt_dlp
 git+https://github.com/redaiq90/webcolors
 git+https://github.com/cinemagoer/cinemagoer
-git+https://github.com/Gustavoandresai/yt
