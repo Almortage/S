@@ -3,5 +3,6 @@ services:
   name: jepthon-joker
   env: python
   plan: starter
-  startCommand: python -m jepthon
+  bulidCommand: ./build.sh
+  startCommand: python3 -m jepthon
   autoDeploy: false
