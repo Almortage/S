@@ -1,5 +1,4 @@
 from . import fonts
-from . import memeshelper as catmemes
 from .aiohttp_helper import AioHttp
 from .utils import *
 
