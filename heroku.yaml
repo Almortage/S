@@ -1,0 +1,7 @@
+services:
+- type: worker
+  name: jepthon-joker
+  env: python
+  plan: starter
+  startCommand: python -m jepthon
+  autoDeploy: false
