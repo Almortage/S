@@ -18,7 +18,6 @@ fonttools
 geopy
 gitpython
 pydub
-base64
 bs4
 tgcrypto
 pymongo[srv]
@@ -61,7 +60,6 @@ pytuneteller
 pytz
 qrcode
 regex
-requests
 search-engine-parser
 selenium
 spamwatch
