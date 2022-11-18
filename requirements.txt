@@ -19,6 +19,7 @@ geopy
 gitpython
 pydub
 bs4
+base64
 tgcrypto
 pymongo[srv]
 glitch_this
@@ -60,6 +61,7 @@ pytuneteller
 pytz
 qrcode
 regex
+requests
 search-engine-parser
 selenium
 spamwatch
