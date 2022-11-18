@@ -5,6 +5,9 @@ from telethon.sessions import StringSession
 from telethon.errors import AccessTokenExpiredError, AccessTokenInvalidError
 from ..Config import Config
 from .client import CatUserBotClient
+from aiohttp import web
+from jepthon.plugins.route import web_server
+
 LOGS = logging.getLogger(" ")
 
 __version__ = "2.10.6"
@@ -27,6 +30,11 @@ try:
         auto_reconnect=True,
         connection_retries=None,
     )
+    app = web.AppRunner(await web_server())
+    await app.setup()
+    bind_address = "0.0.0.0"
+    redaport = Config.PORT
+    await web.TCPSite(app, bind_address, redaport).start()
 except Exception as e:
     print(f"[STRING SESSION] - {str(e)}")
     sys.exit()
