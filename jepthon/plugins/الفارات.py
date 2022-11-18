@@ -452,7 +452,7 @@ async def variable(event):
 @jepiq.ar_cmd(pattern="زخرفة الصورة(?:\s|$)([\s\S]*)")
 async def variable(event):
     if Config.HEROKU_API_KEY is None:
-        return await ed(
+        return await edit_delete(
             event,
             "اضبط Var المطلوب في Heroku على وظيفة هذا بشكل طبيعي `HEROKU_API_KEY` اذا كنت لاتعلم اين يوجد فقط اذهب الى حسابك في هيروكو ثم الى الاعدادات ستجده بالاسفل انسخه ودخله في الفار. ",
         )
@@ -623,7 +623,7 @@ async def variable(event):
 @jepiq.ar_cmd(pattern="ميوزك(?:\s|$)([\s\S]*)")
 async def variable(event):
     if Config.HEROKU_API_KEY is None:
-        return await ed(
+        return await edit_delete(
             event,
             "اضبط Var المطلوب في Heroku على وظيفة هذا بشكل طبيعي `HEROKU_API_KEY` اذا كنت لاتعلم اين يوجد فقط اذهب الى حسابك في هيروكو ثم الى الاعدادات ستجده بالاسفل انسخه ودخله في الفار. ",
         )
