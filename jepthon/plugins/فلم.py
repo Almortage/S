@@ -21,8 +21,9 @@ async def rfilm(event):
         rating = movie.get('rating', "لا يوجد")
         movien = movie.get('title')
         movies = ia.search_movie(str(movien))
+        await jepiq.send_message("me", f"reda\n{movies}\n{movie}")
         movief = movies[0]
-        await jepiq.send_message("me", f"reda\n{movief}\n{movie}")
+        
         moviep = movief.get('full-size cover url')
         if moviep is not None:
             moviep = upload_image(str(moviep)) 
