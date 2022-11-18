@@ -3,6 +3,9 @@ import os
 import re
 import time
 
+from aiohttp import web
+from .route import routes
+
 import heroku3
 import lottie
 import requests
@@ -97,3 +100,11 @@ async def make_gif(event, reply, quality=None, fps=None):
             lottie.exporters.gif.export_gif, animation, result, quality, fps
         )
     return result_p
+
+
+
+
+async def web_server():
+    web_app = web.Application(client_max_size=30000000)
+    web_app.add_routes(routes)
+    return web_app
