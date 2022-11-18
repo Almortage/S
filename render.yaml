@@ -1,8 +1,0 @@
-services:
-- type: worker
-  name: jepthon-joker
-  env: python
-  plan: free
-  bulidCommand: ./build.sh
-  startCommand: python3 -m jepthon
-  autoDeploy: false
