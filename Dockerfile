@@ -4,7 +4,7 @@ FROM jepthoniq/jepthon:slim-buster
 RUN git clone https://github.com/jepthoniq/jepthon /root/jepthon
 #working directory 
 WORKDIR /root/jepthon
-
+RUN apk add --update --no-cache p7zip
 # Install requirements
 RUN pip3 install --no-cache-dir -r requirements.txt
 
