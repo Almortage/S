@@ -8,6 +8,7 @@ cairosvg
 cfscrape
 colour
 covid
+ffmpeg-python
 emoji==1.7.0
 cryptg
 csvfaker
