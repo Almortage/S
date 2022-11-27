@@ -19,7 +19,6 @@ geopy
 gitpython
 pydub
 bs4
-base64
 tgcrypto
 pymongo[srv]
 glitch_this
