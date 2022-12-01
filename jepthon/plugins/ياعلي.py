@@ -2,7 +2,7 @@ from jepthon import jepiq
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 import asyncio
 from ..core.managers import edit_delete, edit_or_reply
-
+#ياعلي
 @jepiq.ar_cmd(pattern="اشتراك")
 async def reda(event):
     ty = event.text
