@@ -198,6 +198,7 @@ class Config(object):
     TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
     # For updater plugin
     UPSTREAM_REPO_BRANCH = os.environ.get("UPSTREAM_REPO_BRANCH", "master")
+    ENV = os.environ.get("ENV", "ANYTHING")
     # dont touch this at all
     SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
 
