@@ -47,7 +47,6 @@ Pillow
 prettytable
 programmingquotes
 psutil
-psycopg2
 pyfiglet
 PyGithub
 pygments
