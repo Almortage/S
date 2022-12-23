@@ -1,7 +1,7 @@
 import os
 from typing import Set
 from telethon.tl.types import ChatBannedRights
-from .sql_helper.globals import gvarstatus
+from jepthon.sql_helper.globals import gvarstatus
 
 
 class Config(object):
