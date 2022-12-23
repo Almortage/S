@@ -217,7 +217,6 @@ async def variable(event):
     jordan = "Asia/Amman"
     yman = "Asia/Aden"
     Syria = "Asia/Damascus"
-    heroku_var = app.config()
     await edit_or_reply(event, "⌔∮ يتم جلب معلومات هذا الفار")
     if exe == "العراق" or exe == "عراق":
         variable = "TZ"
