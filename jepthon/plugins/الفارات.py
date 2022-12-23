@@ -48,7 +48,7 @@ async def variable(var):
             var,
             "**⌔∮ تم بنجاح تغيير فار رمز الاسم \n\n❃ جار اعادة تشغيل السورس انتظر من 2-5 دقائق ليتشغل مره اخرى**",
         )
-         addgvar(variable, vra)
+        addgvar(variable, vra)
     if exe == "البايو" or exe == "النبذة" or exe == "بايو":
         variable = "DEFAULT_BIO"
         await asyncio.sleep(1)
