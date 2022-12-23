@@ -38,12 +38,8 @@ digital_group_pic_path = os.path.join(os.getcwd(), "jepthon", "digital_group_pic
 autophoto_path = os.path.join(os.getcwd(), "jepthon", "photo_pfp.png")
 auto_group_photo_path = os.path.join(os.getcwd(), "jepthon", "photo_pfp.png")
 
-digitalpfp = gvarstatus("DIGITAL_PIC") or "https://telegra.ph/file/63a826d5e5f0003e006a0.jpg"
 digitalgrouppfp = gvarstatus("DIGITAL_GROUP_PIC") or "https://telegra.ph/file/63a826d5e5f0003e006a0.jpg"
-lMl10l = gvarstatus("TIME_JEP") or ""
-jep = gvarstatus("DEFAULT_PIC") or "jepthon/helpers/styles/PaybAck.ttf"
 normzltext = "1234567890"
-namerzfont = gvarstatus("JP_FN") or "𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢"
 namew8t = Config.NAME_ET or "اسم وقتي"
 biow8t = Config.BIO_ET or "بايو وقتي"
 phow8t = Config.PHOTO_ET or "الصورة الوقتية"
@@ -76,6 +72,7 @@ async def digitalpicloop():
         current_time = datetime.now().strftime("%I:%M")
         img = Image.open(autophoto_path)
         drawn_text = ImageDraw.Draw(img)
+        jep = gvarstatus("DEFAULT_PIC") or "jepthon/helpers/styles/PaybAck.ttf"
         fnt = ImageFont.truetype(jep, 65)
         drawn_text.text((200, 200), current_time, font=fnt, fill=colo)
         img.save(autophoto_path)
@@ -111,6 +108,7 @@ async def digitalgrouppicloop():
     DIGITALPICSTART = gvarstatus("digitalgrouppic") != None
     while DIGITALPICSTART:
         if not os.path.exists(digital_group_pic_path):
+            digitalpfp = gvarstatus("DIGITAL_PIC") or "https://telegra.ph/file/63a826d5e5f0003e006a0.jpg"
             downloader = SmartDL(digitalgrouppfp, digital_group_pic_path, progress_bar=False)
             downloader.start(blocking=False)
             while not downloader.isFinished():
@@ -120,6 +118,7 @@ async def digitalgrouppicloop():
         current_time = datetime.now().strftime("%I:%M")
         img = Image.open(auto_group_photo_path)
         drawn_text = ImageDraw.Draw(img)
+        jep = gvarstatus("DEFAULT_PIC") or "jepthon/helpers/styles/PaybAck.ttf"
         fnt = ImageFont.truetype(jep, 65)
         drawn_text.text((200, 200), current_time, font=fnt, fill=colo)
         img.save(auto_group_photo_path)
@@ -154,6 +153,7 @@ async def group_loop():
         HM = time.strftime("%I:%M")
         for normal in HM:
             if normal in normzltext:
+                namerzfont = gvarstatus("JP_FN") or "𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢"
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
         DEFAULTUSERGRO = gvarstatus("DEFAULT_GROUP") or ""
@@ -180,8 +180,10 @@ async def autoname_loop():
         HM = time.strftime("%I:%M")
         for normal in HM:
             if normal in normzltext:
+                namerzfont = gvarstatus("JP_FN") or "𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢"
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
+                lMl10l = gvarstatus("TIME_JEP") or ""
         name = f"{lMl10l} {HM}"
         LOGS.info(name)
         try:
@@ -200,6 +202,7 @@ async def autobio_loop():
         HI = time.strftime("%I:%M")
         for normal in HI:
             if normal in normzltext:
+                namerzfont = gvarstatus("JP_FN") or "𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢"
                 namefont = namerzfont[normzltext.index(normal)]
                 HI = HI.replace(normal, namefont)
         DEFAULTUSERBIO = gvarstatus("DEFAULT_BIO") or " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  "
@@ -216,6 +219,7 @@ async def autobio_loop():
 @jepiq.on(admin_cmd(pattern=f"{phow8t}(?:\s|$)([\s\S]*)"))
 async def _(event):
     "To set random colour pic with time to profile pic"
+    digitalpfp = gvarstatus("DIGITAL_PIC") or "https://telegra.ph/file/63a826d5e5f0003e006a0.jpg"
     downloader = SmartDL(digitalpfp, digitalpic_path, progress_bar=False)
     downloader.start(blocking=False)
     while not downloader.isFinished():
