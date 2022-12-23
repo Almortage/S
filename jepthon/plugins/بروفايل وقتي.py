@@ -29,7 +29,7 @@ from colour import Color
 plugin_category = "tools"
 # لتخمط ابن الكحبة
 DEFAULTUSERBIO = gvarstatus("DEFAULT_BIO") or " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  "
-DEFAULTUSERGRO = gvarstatus ("DEFAULT_GROUP") or ""
+DEFAULTUSERGRO = gvarstatus("DEFAULT_GROUP") or ""
 DEFAULTUSER = gvarstatus("AUTONAME") or Config.ALIVE_NAME
 LOGS = logging.getLogger(__name__)
 
