@@ -1,6 +1,7 @@
 import os
 from typing import Set
 from telethon.tl.types import ChatBannedRights
+from ..sql_helper.globals import gvarstatus
 
 
 class Config(object):
@@ -26,7 +27,7 @@ class Config(object):
     )
     TG_BOT_USERNAME = None
     # get this value from http://www.timezoneconverter.com/cgi-bin/findzone.tzc
-    TZ = os.environ.get("TZ", "Asia/Baghdad")
+    TZ = gvarstatus("TZ") or "Asia/Baghdad"
     # set this with required cat repo link
     UPSTREAM_REPO = os.environ.get(
         "UPSTREAM_REPO", "https://github.com/jepthoniq/jepthon.git"
