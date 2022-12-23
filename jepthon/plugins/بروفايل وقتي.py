@@ -28,11 +28,8 @@ from colour import Color
 
 plugin_category = "tools"
 # لتخمط ابن الكحبة
-DEFAULTUSERBIO = gvarstatus("DEFAULT_BIO") or " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  "
-DEFAULTUSERGRO = gvarstatus("DEFAULT_GROUP") or ""
-DEFAULTUSER = gvarstatus("AUTONAME") or Config.ALIVE_NAME
 LOGS = logging.getLogger(__name__)
-
+DEFAULTUSER = gvarstatus("AUTONAME") or Config.ALIVE_NAME
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 
 autopic_path = os.path.join(os.getcwd(), "jepthon", "original_pic.png")
@@ -159,6 +156,7 @@ async def group_loop():
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
+        DEFAULTUSERGRO = gvarstatus("DEFAULT_GROUP") or ""
         name = f"{DEFAULTUSERGRO} {HM}"
         try:
             await jepiq(functions.channels.EditTitleRequest(
@@ -204,6 +202,7 @@ async def autobio_loop():
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
                 HI = HI.replace(normal, namefont)
+        DEFAULTUSERBIO = gvarstatus("DEFAULT_BIO") or " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  "
         bio = f"{DEFAULTUSERBIO} {HI}"
         LOGS.info(bio)
         try:
