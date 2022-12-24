@@ -18,7 +18,6 @@ fonttools
 geopy
 gitpython
 pydub
-pymongo
 bs4
 tgcrypto
 pymongo[srv]
