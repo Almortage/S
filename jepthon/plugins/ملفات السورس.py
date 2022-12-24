@@ -2,6 +2,10 @@ from jepthon import jepiq
 import pkg_resources
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.utils import _catutils, parse_pre, yaml_format
+from ..Config import Config
+import json
+import requests
+import os
 
 plugin_category = "tools"
 
@@ -74,3 +78,23 @@ async def _(event):
     await edit_or_reply(
         event, f"**᯽︙ نـشـرت هـذه الـرسالة فـي  :** `{yaml_format(result)}`"
     )
+@jepiq.ar_cmd(pattern="رفع")
+async def upload_reda(event):
+    r = await event.get_reply_message()
+    if r is None:
+        return await edit_delete(event, "**᯽︙قم بالرد على ملف لرفعهُ**")
+    if r.media is None:
+        return await edit_delete(event, "**᯽︙قم بالرد على ملف لرفعهُ**")
+    file = await event.client.download_media(r, Config.TEMP_DIR)
+    await edit_or_reply(event, "**᯽︙ يُجري عملية الرفع . .**")
+    payload = {}
+    image = {"file": open(file, "rb")}
+    response = requests.request("POST", "https://api.anonfiles.com/upload", files=image, data = payload)
+    res = response.json()
+    if res["status"] == False:
+        er = res["error"]["message"]
+        return await edit_delete(event, f"حدث خطأ عند رفع الملف\n{er}") 
+    url = res["data"]["file"]["url"]["short"]
+    size = res["data"]["file"]["metadata"]["size"]["readable"]
+    await edit_or_reply(event, f"**تم رفع الملف ✓**\n**᯽︙ الرابط:** {url}\n**᯽︙الحجم:** {size}")
+    os.remove(file)
