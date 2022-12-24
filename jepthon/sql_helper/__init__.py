@@ -10,9 +10,8 @@ import motor.motor_asyncio
 
 LOGS = logging.getLogger(__name__)
 
-cli = motor.motor_asyncio.AsyncIOMotorClient(Config.MONGO_URL)
-
 def start() -> scoped_session:
+    cli = motor.motor_asyncio.AsyncIOMotorClient(Config.MONGO_URL)
     engine = create_engine(Config.DB_URI)
     BASE.metadata.bind = engine
     BASE.metadata.create_all(engine)
