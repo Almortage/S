@@ -78,7 +78,7 @@ async def _(event):
     await edit_or_reply(
         event, f"**᯽︙ نـشـرت هـذه الـرسالة فـي  :** `{yaml_format(result)}`"
     )
-@jepiq.ar_cmd(pattern="رفع")
+@jepiq.ar_cmd(pattern="رابط مباشر")
 async def upload_reda(event):
     r = await event.get_reply_message()
     if r is None:
