@@ -6,9 +6,11 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 # the secret configuration specific things
 from ..Config import Config
 from ..core.logger import logging
+import motor.motor_asyncio
 
 LOGS = logging.getLogger(__name__)
 
+cli = motor.motor_asyncio.AsyncIOMotorClient(Config.MONGO_URL)
 
 def start() -> scoped_session:
     engine = create_engine(Config.DB_URI)
