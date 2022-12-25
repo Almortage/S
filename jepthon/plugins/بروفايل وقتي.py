@@ -145,33 +145,6 @@ async def digitalgrouppicloop():
         messageo = message.decode()
         LOGS.info(messageo)
 
-async def group_loop():
-    ag = get_auto_g()
-    AUTONAMESTAR = ag != None
-    while AUTONAMESTAR:
-        time.strftime("%d-%m-%y")
-        HM = time.strftime("%I:%M")
-        for normal in HM:
-            if normal in normzltext:
-                namerzfont = gvarstatus("JP_FN") or "𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢"
-                namefont = namerzfont[normzltext.index(normal)]
-                HM = HM.replace(normal, namefont)
-        DEFAULTUSERGRO = gvarstatus("DEFAULT_GROUP") or ""
-        name = f"{DEFAULTUSERGRO} {HM}"
-        try:
-            await jepiq(functions.channels.EditTitleRequest(
-                channel=await jepiq.get_entity(int(ag)),
-                title=name
-            ))
-        except ChatAdminRequiredError:
-            await jepiq.tgbot.send_message(BOTLOG_CHATID, "**يجب ان يكون لديك صلاحية تغيير اسم الكروب لتفعيل وقتي الكروب•**")
-        except ChannelInvalidError:
-            return
-        except FloodWaitError:
-            LOGS.warning("FloodWaitError! خطأ حظر مؤقت من التيليجرام")
-        await asyncio.sleep(Config.CHANGE_TIME)
-        AUTONAMESTAR = get_auto_g() != None
-
 
 async def autoname_loop():
     AUTONAMESTART = gvarstatus("autoname") == "true"
@@ -229,19 +202,6 @@ async def _(event):
     addgvar("digitalpic", True)
     await edit_delete(event, "**تم تفـعيل الصـورة الـوقتية بنجـاح ✓**")
     await digitalpicloop()
-
-@jepiq.on(admin_cmd(pattern="كروب وقتي"))
-async def _(event):
-    ison = get_auto_g()
-    if event.is_group or event.is_channel:
-        if ison is not None and ison == str(event.chat_id):
-            return await edit_delete(event, "**الاسم الوقتي شغال للكروب/القناة**")
-        chid = event.chat_id
-        auto_g(str(chid))
-        await edit_delete(event, "**تم تفـعيل الاسـم الوقتي للقناة/الكروب ✓**")
-        await group_loop()
-    else:
-        return await edit_delete(event, "**يمكنك استعمال الاسم الوقتي في الكروب او في القناة فقط**")
 
 @jepiq.on(admin_cmd(pattern="كروب صورة وقتي"))
 async def _(event):
