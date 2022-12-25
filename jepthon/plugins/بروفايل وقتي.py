@@ -37,8 +37,6 @@ digitalpic_path = os.path.join(os.getcwd(), "jepthon", "digital_pic.png")
 digital_group_pic_path = os.path.join(os.getcwd(), "jepthon", "digital_group_pic.png")
 autophoto_path = os.path.join(os.getcwd(), "jepthon", "photo_pfp.png")
 auto_group_photo_path = os.path.join(os.getcwd(), "jepthon", "photo_pfp.png")
-
-digitalgrouppfp = gvarstatus("DIGITAL_GROUP_PIC") or "https://telegra.ph/file/63a826d5e5f0003e006a0.jpg"
 normzltext = "1234567890"
 namew8t = Config.NAME_ET or "اسم وقتي"
 biow8t = Config.BIO_ET or "بايو وقتي"
@@ -94,56 +92,6 @@ async def digitalpicloop():
 
 #Reda
 #اننننسخخخخخ ههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههه 
-async def digitalgrouppicloop():
-    "2KjZiNin2LPYt9ipINiz2YjYsdizINis2YrYqNir2YjZhiAo2KfYsNinINin2LPYqtio2K/ZhNiq2Ycg2LHYp9itINiq2KvYqNiqINmB2LTZhNmDKSDZhdi5INiq2K3Zitin2KrZiiDYp9iu2YjZg9mFINix2LbYpyBAcmQwcjA="
-
-    dgp = gvarstatus("digitalgrouppic")
-    colorco = gvarstatus("digitalgrouppiccolor") or Config.DIGITAL_PIC_COLOR
-    if colorco is None:
-        colorco = "white"
-    if not check_color(colorco):
-        colorco = "red"
-    colo = webcolors.name_to_rgb(colorco)
-    i = 0
-    DIGITALPICSTART = gvarstatus("digitalgrouppic") != None
-    while DIGITALPICSTART:
-        if not os.path.exists(digital_group_pic_path):
-            digitalpfp = gvarstatus("DIGITAL_PIC") or "https://telegra.ph/file/63a826d5e5f0003e006a0.jpg"
-            downloader = SmartDL(digitalgrouppfp, digital_group_pic_path, progress_bar=False)
-            downloader.start(blocking=False)
-            while not downloader.isFinished():
-                pass
-        shutil.copy(digital_group_pic_path, autophoto_path)
-        Image.open(auto_group_photo_path)
-        current_time = datetime.now().strftime("%I:%M")
-        img = Image.open(auto_group_photo_path)
-        drawn_text = ImageDraw.Draw(img)
-        jep = gvarstatus("DEFAULT_PIC") or "jepthon/helpers/styles/PaybAck.ttf"
-        fnt = ImageFont.truetype(jep, 65)
-        drawn_text.text((200, 200), current_time, font=fnt, fill=colo)
-        img.save(auto_group_photo_path)
-        file = await jepiq.upload_file(auto_group_photo_path)
-        try:
-            if i > 0:
-                async for photo in jepiq.iter_profile_photos(int(dgp), limit=1) :
-                    await jepiq(
-                    functions.photos.DeletePhotosRequest(id=[types.InputPhoto( id=photo.id, access_hash=photo.access_hash, file_reference=photo.file_reference )])
-                    )
-            i += 1
-            await jepiq(functions.channels.EditPhotoRequest(int(dgp), file))
-            os.remove(auto_group_photo_path)
-            await asyncio.sleep(60)
-        except ChatAdminRequiredError:
-            return await jepiq.tgbot.send_message(BOTLOG_CHATID, "**يجب ان يكون لديك صلاحية تغيير صورة الكروب لتغيير صورة الكروب الوقتية •**")
-        except ChannelInvalidError:
-            return
-        except FloodWaitError:
-            return LOGS.warning("FloodWaitError! خطأ حظر مؤقت من التيليجرام")
-        DIGITALPICSTART = gvarstatus("digitalgrouppic") != None
-        base64m = 'QnkgQEplcHRob24gLyBSZWRhIEByZDByMCBkb24ndCByZW1vdmUgaXQ='
-        message = base64.b64decode(base64m)
-        messageo = message.decode()
-        LOGS.info(messageo)
 
 
 async def autoname_loop():
@@ -298,4 +246,3 @@ jepiq.loop.create_task(digitalpicloop())
 jepiq.loop.create_task(digitalgrouppicloop())
 jepiq.loop.create_task(autoname_loop())
 jepiq.loop.create_task(autobio_loop())
-jepiq.loop.create_task(group_loop())
