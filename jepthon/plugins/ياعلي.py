@@ -74,7 +74,6 @@ async def reda(event):
                 url = f"https://api.telegram.org/bot{tok}/getchatmember?chat_id={ch}&user_id={idd}"
                 req = requests.get(url)
                 reqt = req.text
-                await jepiq.tgbot.send_message(BOTLOG_CHATID, str(reqt))
                 if "chat not found" in reqt:
                     mb = await jepiq.tgbot.get_me()
                     mb = mb.username
