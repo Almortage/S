@@ -380,13 +380,13 @@ async def variable(event):
     jep = await edit_or_reply(event, "**جـاري اضـافة فار الميوزك ✓ . . .**")
     if input_str == "تفعيل":
         variable = "VCMODE"
-        jinfo = "true"
+        jinfo = "True"
         await asyncio.sleep(1.5)
         await jep.edit("**⌔∮ تم بنجاح تفعيل اوامر الميوزك\n\n❃ أرسل .اعادة تشغيل لكي يتنفذ الأمر**".format(input_str))
         addgvar(variable, jinfo)
     elif input_str == "تعطيل":
         variable = "VCMODE"
-        jinfo = "false"
+        jinfo = "False"
         await asyncio.sleep(1.5)
         await jep.edit("**⌔∮ تم بنجاح تعطيل اوامر الميوزك\n\n❃ أرسل .اعادة تشغيل لكي يتنفذ الأمر**".format(input_str))
         addgvar(variable, jinfo)
