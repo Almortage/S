@@ -374,6 +374,23 @@ async def variable(event):
         await jep.edit("**⌔∮ تم بنجاح تغيير زخرفة الصورة الوقتية\n\n❃ جار اعادة تشغيل السورس انتظر من 2-5 دقائق ليتشغل مره اخرى**".format(input_str))
         addgvar(variable, zinfo)
 
+@jepiq.ar_cmd(pattern="ميوزك(?:\s|$)([\s\S]*)")
+async def variable(event):
+    input_str = event.pattern_match.group(1)
+    jep = await edit_or_reply(event, "**جـاري اضـافة فار الميوزك ✓ . . .**")
+    if input_str == "تفعيل":
+        variable = "VCMODE"
+        jinfo = "true"
+        await asyncio.sleep(1.5)
+        await jep.edit("**⌔∮ تم بنجاح تفعيل اوامر الميوزك\n\n❃ أرسل .اعادة تشغيل لكي يتنفذ الأمر**".format(input_str))
+        addgvar(variable, jinfo)
+    elif input_str == "تعطيل":
+        variable = "VCMODE"
+        jinfo = "false"
+        await asyncio.sleep(1.5)
+        await jep.edit("**⌔∮ تم بنجاح تعطيل اوامر الميوزك\n\n❃ أرسل .اعادة تشغيل لكي يتنفذ الأمر**".format(input_str))
+        addgvar(variable, jinfo)
+
 
 @jepiq.ar_cmd(pattern="استخدامي$")
 async def dyno_usage(dyno):
