@@ -282,7 +282,7 @@ async def verifyLoggerGroup():
             )
     else:
         descript = "- عزيزي المستخدم هذه هي مجموعه الاشعارات يرجى عدم حذفها  - @jepthon"
-        photobt = await l313l.upload_file(file="l313l/razan/resources/start/joker.JPEG")
+        photobt = await l313l.upload_file(file="l313l/razan/resources/start/jepthon.JPEG")
         _, groupid = await create_supergroup(
             "مجموعة أشعارات الجوكر ", l313l, Config.TG_BOT_USERNAME, descript, photobt
         )
@@ -311,7 +311,7 @@ async def verifyLoggerGroup():
             )
     else:
         descript = "᯽︙ وظيفه الكروب يحفظ رسائل الخاص اذا ما تريد الامر احذف الكروب نهائي \n  - @jepthon"
-        photobt = await l313l.upload_file(file="l313l/razan/resources/start/joker2.JPEG")
+        photobt = await l313l.upload_file(file="l313l/razan/resources/start/Jepthon2.JPEG")
         _, groupid = await create_supergroup(
             "مجموعة التخزين", l313l, Config.TG_BOT_USERNAME, descript, photobt
         )
