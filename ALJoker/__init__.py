@@ -2,12 +2,12 @@ import sys
 import os
 from typing import Any, Dict, List, Union
 from glob import glob
-from jepthon import *
-from jepthon.helpers.functions.functions import translate
+from joker import *
+from joker.helpers.functions.functions import translate
 try:
     from yaml import safe_load
 except ModuleNotFoundError:
-    from jepthon.helpers.functions.functions import safe_load
+    from joker.helpers.functions.functions import safe_load
 
 os.getenv("LANGUAGE", "ar")
 
