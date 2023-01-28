@@ -47,7 +47,7 @@ IS_SELECTED_DIFFERENT_BRANCH = (
 
 
 # -- انتهاء الثوابت -- #
-
+#ياعلي
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 requirements_path = os.path.join(
