@@ -129,7 +129,7 @@ async def digitalgrouppicloop():
         file = await l313l.upload_file(auto_group_photo_path)
         try:
             if i > 0:
-                async for photo in jepiq.iter_profile_photos(int(dgp), limit=1) :
+                async for photo in l313l.iter_profile_photos(int(dgp), limit=1) :
                     await l313l(
                     functions.photos.DeletePhotosRequest(id=[types.InputPhoto( id=photo.id, access_hash=photo.access_hash, file_reference=photo.file_reference )])
                     )
