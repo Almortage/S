@@ -1,6 +1,7 @@
 from jepthon import jepiq
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 import os
+from jepthon import *
 
 @jepiq.on(admin_cmd(pattern="(جلب الصورة|جلب الصوره|ذاتيه|ذاتية|حفظ)"))
 async def dato(event):
