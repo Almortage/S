@@ -20,8 +20,8 @@ async def dato(event):
   """,
     )
     await event.delete()
-
-@l313l.on(admin_cmd(pattern="الذاتية تشغيل"))
+#By @jepthon For You 🌹
+@l313l.on(admin_cmd(pattern="(الذاتية تشغيل|ذاتية تشغيل)"))
 async def reda(event):
     if gvarstatus ("savepicforme"):
         return await edit_delete(event, "**᯽︙حفظ الذاتيات مفعل وليس بحاجة للتفعيل مجدداً **")
@@ -29,7 +29,7 @@ async def reda(event):
         addgvar("savepicforme", "reda")
         await edit_delete(event, "**᯽︙تم تفعيل ميزة حفظ الذاتيات بنجاح ✓**")
  
-@l313l.on(admin_cmd(pattern="الذاتية تعطيل"))
+@l313l.on(admin_cmd(pattern="(الذاتية تعطيل|ذاتية تعطيل)"))
 async def Reda_Is_Here(event):
     if gvarstatus ("savepicforme"):
         delgvar("savepicforme")
