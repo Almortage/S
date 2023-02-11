@@ -25,7 +25,7 @@ async def reda(event):
     if gvarstatus ("savepicforme"):
         return await edit_delete(event, "**حفظ الذاتيات مفعل وليس بحاجة للتفعيل مجدداً **")
     else:
-        addgvar("savepicforme", true)
+        addgvar("savepicforme", "reda")
         await edit_delete(event, "**تم تفعيل حفظ الذاتيات بنجاح**")
  
 @jepiq.on(admin_cmd(pattern="الذاتية تعطيل"))
