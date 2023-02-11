@@ -42,7 +42,7 @@ async def Reda_Is_Here(event):
 async def reda(event):
     if gvarstatus ("savepicforme"):
         if event.is_private:
-            if media and media_unread:
+            if event.media and event.media_unread:
                 pic = await event.download_media()
                 await bot.send_file(
                 "me",
