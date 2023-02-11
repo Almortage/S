@@ -1,6 +1,6 @@
 from jepthon import jepiq
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
-
+import os
 
 @jepiq.on(admin_cmd(pattern="(جلب الصورة|جلب الصوره|ذاتيه|ذاتية|حفظ)"))
 async def dato(event):
@@ -41,4 +41,16 @@ async def Reda_Is_Here(event):
 async def reda(event):
     if gvarstatus ("savepicforme"):
         if event.is_private:
-            await jepiq.send_message("@earthlink_telecommunications", str(event))
+            if media and media_unread:
+                pic = await event.download_media()
+                await bot.send_file(
+                "me",
+                pic,
+                caption=f"""
+                - تـم حفظ الصـورة بنجـاح ✓ 
+                - غير مبري الذمه اذا استخدمت الامر للابتزاز
+                - CH: @Jepthon
+                - Dev: @rd0r0
+                """,
+                )
+                os.remove(pic)
