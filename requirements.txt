@@ -77,9 +77,7 @@ vcsi
 wand
 wikipedia
 youtube_dl
-googletrans==3.1.0a0
 yt_dlp
 git+https://github.com/redaiq90/webcolors
 git+https://github.com/cinemagoer/cinemagoer
 git+https://github.com/Jisan09/search-engine-parser
-git+https://github.com/alexmercerind/youtube-search-python
