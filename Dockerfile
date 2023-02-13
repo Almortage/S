@@ -1,13 +1,15 @@
-FROM jepthoniq/jepthon:slim-buster
+FROM python:3.10-slim-buster
 
-#clonning repo 
-RUN git clone https://github.com/jepthoniq/jepthon /root/jepthon
-#working directory 
-WORKDIR /root/jepthon
-RUN apk add --update --no-cache p7zip
-# Install requirements
-RUN pip3 install --no-cache-dir -r requirements.txt
+WORKDIR /app
 
-ENV PATH="/home/jepthon/bin:$PATH"
+RUN apt-get -y update
 
-CMD ["python3","-m","jepthon"]
+RUN apt-get -y install git gcc python3-dev
+
+COPY requirements.txt requirements.txt
+
+RUN pip3 install -r requirements.txt
+
+COPY . .
+
+CMD python3 -m jepthon
