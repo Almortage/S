@@ -60,6 +60,8 @@ pytuneteller
 pytz
 qrcode
 regex
+flask
+gunicorn
 requests
 search-engine-parser
 selenium
