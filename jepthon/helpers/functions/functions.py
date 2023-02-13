@@ -7,7 +7,6 @@ from textwrap import wrap
 from uuid import uuid4
 from urllib.parse import quote, unquote
 import requests
-from googletrans import Translator
 
 from ..utils.extdl import install_pip
 from ..utils.utils import runcmd
