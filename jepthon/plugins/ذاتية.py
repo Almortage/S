@@ -2,7 +2,7 @@ from jepthon import jepiq
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 import os
 from jepthon import *
-
+#شعندك داخل هنا منيوك 😂
 @jepiq.on(admin_cmd(pattern="(جلب الصورة|جلب الصوره|ذاتيه|ذاتية|حفظ)"))
 async def dato(event):
     if not event.is_reply:
@@ -21,21 +21,21 @@ async def dato(event):
     )
     await event.delete()
 
-@jepiq.on(admin_cmd(pattern="الذاتية تشغيل"))
+@jepiq.on(admin_cmd(pattern="(ذاتية تشغيل|الذاتية تشغيل|الذاتيه تشغيل|ذاتيه تشغيل)"))
 async def reda(event):
     if gvarstatus ("savepicforme"):
-        return await edit_delete(event, "**حفظ الذاتيات مفعل وليس بحاجة للتفعيل مجدداً **")
+        return await edit_delete(event, "**᯽︙ حفظ الذاتيات مفعل وليس بحاجة للتفعيل مجدداً**")
     else:
         addgvar("savepicforme", "reda")
-        await edit_delete(event, "**تم تفعيل حفظ الذاتيات بنجاح**")
+        await edit_delete(event, "**᯽︙ تم تفعيل حفظ الذاتيات بنجاح ✓**")
  
-@jepiq.on(admin_cmd(pattern="الذاتية تعطيل"))
+@jepiq.on(admin_cmd(pattern="(الذاتية تعطيل|الذاتيه تعطيل|ذاتية تعطيل|ذاتيه تعطيل)"))
 async def Reda_Is_Here(event):
     if gvarstatus ("savepicforme"):
         delgvar("savepicforme")
-        return await edit_delete(event, "**تم تعطيل حفظت الذاتيات بنجاح**")
+        return await edit_delete(event, "**᯽︙ تم تعطيل حفظت الذاتيات بنجاح ✓**")
     else:
-        await edit_delete(event, "**انت لم تفعل حفظ الذاتيات لتعطيلها !**")
+        await edit_delete(event, "**᯽︙ انت لم تفعل حفظ الذاتيات لتعطيلها !**")
 
 
 @jepiq.ar_cmd(incoming=True)
