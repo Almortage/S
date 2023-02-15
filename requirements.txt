@@ -7,7 +7,6 @@ beautifulsoup4
 cairosvg
 cfscrape
 colour
-covid
 emoji==1.7.0
 cryptg
 csvfaker
@@ -27,7 +26,6 @@ google-auth-httplib2
 google-auth-oauthlib
 gsearch
 git+https://github.com/buddhhu/img2html.git
-git+https://github.com/yt-dlp/yt-dlp
 gtts
 hachoir
 heroku3
@@ -39,7 +37,6 @@ kwot
 lottie
 lxml
 lyricsgenius
-moviepy
 motor==3.0.0
 markdown-it-py
 nekos.py
@@ -66,7 +63,6 @@ requests
 search-engine-parser
 selenium
 spamwatch
-speedtest-cli
 sqlalchemy==1.3.23
 telegraph
 telethon-session-sqlalchemy
@@ -76,8 +72,5 @@ validators
 vcsi
 wand
 wikipedia
-youtube_dl
-yt_dlp
-git+https://github.com/redaiq90/webcolors
 git+https://github.com/cinemagoer/cinemagoer
 git+https://github.com/Jisan09/search-engine-parser
