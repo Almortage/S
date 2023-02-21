@@ -57,11 +57,11 @@ async def setup_bot():
         bot_details = await jepiq.tgbot.get_me()
         Config.TG_BOT_USERNAME = f"@{bot_details.username}"
         #await jepiq.start(bot_token=Config.TG_BOT_USERNAME)
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        bind_address = "0.0.0.0"
-        redaport = Config.PORT
-        await web.TCPSite(app, bind_address, redaport).start()
+        #app = web.AppRunner(await web_server())
+        #await app.setup()
+        #bind_address = "0.0.0.0"
+        #redaport = Config.PORT
+        #await web.TCPSite(app, bind_address, redaport).start()
         jepiq.me = await jepiq.get_me()
         jepiq.uid = jepiq.tgbot.uid = utils.get_peer_id(jepiq.me)
         if Config.OWNER_ID == 0:
