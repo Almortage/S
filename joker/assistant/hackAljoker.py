@@ -1,5 +1,5 @@
 
-from joker import bot
+from joker import bot, l313l
 #By Source aljoker @jepthon
 from telethon import events, functions, types, Button
 from datetime import timedelta
@@ -218,7 +218,11 @@ keyboard = [
 
       
        
-@tgbot.on(events.NewMessage(pattern="/hack", func=lambda x: x.is_group))
+@l313l.on(
+    admin_cmd(
+       pattern="هاك$"
+    )
+)
 async def op(event):
     busr = Bot_Username.replace("@", "")
     IndianHack = [
