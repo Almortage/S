@@ -225,7 +225,7 @@ keyboard = [
 )
 async def op(event):
     joker = Bot_Username.replace("@", "")       
-    await event.reply(" [اضغط هنا لأستخدامي](https://t.me/{joker})")
+    await event.reply(f" قم بالدخول هنا {joker} وكتابة /hack")
  
 @tgbot.on(events.NewMessage(pattern="/hack", func = lambda x: x.is_private))
 async def start(event):
