@@ -85,11 +85,11 @@ async def log_tagged_messages(event):
         full = await event.client.get_entity(event.message.from_id)
     except Exception as e:
         LOGS.info(str(e))
+    messaget = None
     try:
-        messaget
+        messaget = await media_type(event)
     except BaseException:
-        return await edit_delete(event, "لا يوجد ميديا")
-    messaget = await media_type(event)
+        messaget = None
     resalt = f"#التــاكــات\n\n<b>⌔┊الكــروب : </b><code>{hmm.title}</code>"
     if full is not None:
         resalt += (
