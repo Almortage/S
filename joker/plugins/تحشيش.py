@@ -7,6 +7,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.utils import get_input_location
 
 from joker import l313l
+from random import choice
 from l313l.razan.resources.strings import *
 from telethon import events
 from ..Config import Config
@@ -23,6 +24,16 @@ plugin_category = "utils"
 #كـتابة المـلف وتعديل.    :   السيد حسين.   اخمط وسمي روحك مطور فرخي 😂
 # اذا انت ابن حرام اخمط 😂
 # اي بعدك تريد تخمط ترا من تخمط مراح تنجح
+rehu = [
+    "شكم مره كتلك خلي نفلش الكروب",
+    "باع هذا اللوكي شديسوي",
+    "** مالك الكروب واحد زباله ويدور بنات **",
+    "**اول مره اشوف بنات يدورن ولد 😂 **",
+    "**شوف هذا الكرنج دين مضال براسه**",
+    "**انته واحد فرخ وتنيج**",
+    "** راح اعترفلك بشي طلعت احب اختك 🥺 **",
+    "**مالك الكروب والمشرفين وفرده من قندرتك ضلعي**",
+]
 
 @l313l.on(admin_cmd(pattern="رفع مرتي(?:\s|$)([\s\S]*)"))
 async def permalink(mention):
@@ -414,3 +425,14 @@ async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownersayed1_id :
         order = await event.reply('انته فخر العرب مح ❤️')
+@l313l.on(admin_cmd(pattern="همسه(?:\s|$)([\s\S]*)"))
+async def permalink(mention):
+    user, custom = await get_user_from_event(mention)
+    if not user:
+        return
+    joker = user.last_name.replace("\u2060", "") if user.last_name else user.username
+    me = await mention.client.get_me()
+    my_first = me.first_name
+    lMl10l = random.choice(rehu)
+    my_mention = f"[{me.first_name}](tg://user?id={me.id})"
+    await edit_or_reply(mention, f"**᯽︙  الهمسة هي : {lMl10l} .\n**᯽︙  تم كشف الهمسة بنجاح ✓ ** ")
