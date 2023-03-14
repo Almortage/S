@@ -1,6 +1,6 @@
 import html
 import os
-
+import random
 from requests import get
 from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
