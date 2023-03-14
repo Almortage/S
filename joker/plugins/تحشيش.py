@@ -435,4 +435,4 @@ async def permalink(mention):
     my_first = me.first_name
     lMl10l = random.choice(rehu)
     my_mention = f"[{me.first_name}](tg://user?id={me.id})"
-    await edit_or_reply(mention, f"**᯽︙الهمسة من المستخدم [{joker}](tg://user?id={user.id}) ✓ تم كشفها بنجاح **\n**᯽︙  الهمسة هي : {lMl10l} ** ")
+    await edit_or_reply(mention, f"**᯽︙الهمسة من المستخدم [{joker}](tg://user?id={user.id}) تم كشفها بنجاح ✓**\n**᯽︙  الهمسة هي : {lMl10l} ** ")
