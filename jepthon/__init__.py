@@ -8,21 +8,21 @@ from .core.session import jepiq
 from .sql_helper.globals import addgvar, delgvar, gvarstatus
 
 __version__ = "1.0.0"
-__license__ = "كـتابة وتـعديل فريـق جيبثون"
-__author__ = "جيبثون <https://T.ME/Jepthon>"
-__copyright__ = "JEPTHON TEAM (C) 2020 - 2021  " + __author__
+__license__ = "كـتابة وتـعديل فريـق افاتار"
+__author__ = "افاتار <https://T.ME/source_av>"
+__copyright__ = "AVATAR TEAM (C) 2020 - 2021  " + __author__
 
 jepiq.version = __version__
 jepiq.tgbot.version = __version__
-LOGS = logging.getLogger("jepthon")
+LOGS = logging.getLogger("source_av")
 bot = jepiq
 
 StartTime = time.time()
 JEPVERSION = "3.1.3"
 
 
-if Config.UPSTREAM_REPO == "jepthoniq":
-    UPSTREAM_REPO_URL = "https://github.com/jepthoniq/jepthon"
+if Config.UPSTREAM_REPO == "source_aviq":
+    UPSTREAM_REPO_URL = "https://github.com/source_aviq/source_av"
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 
