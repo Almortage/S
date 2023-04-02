@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Welcome To Aljoker Source'
+    return 'Welcome To AVATAR Source'
 
 # تحياتي عبودي سكيبه
 if __name__ == "__main__":
